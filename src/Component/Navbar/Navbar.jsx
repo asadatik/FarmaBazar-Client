@@ -43,8 +43,13 @@ const Navbar = () => {
                                    </div>  </a>          
             </ul>
           </div>
-             <a className="  lg:text-3xl font-extrabold  uppercase text-indigo-300  "> Volunteer<span className="text-pink-400" >Wave</span> </a>
-             
+            
+         <div>
+         <a className="  lg:text-3xl font-extrabold  uppercase text-indigo-300  ">farma<span className="text-pink-400" >bazar</span> </a>
+        
+
+         </div>
+
         </div>
         <div className="navbar-center  hidden lg:flex">
           <ul className="menu menu-horizontal space-x-12 ">

@@ -10,16 +10,24 @@ import Swal from 'sweetalert2'
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 
-
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from "../../../Provider/AuthProvider";
+import useAxiosPublic from "../../../Hooks/AxiosPublic/useAxiosPublic";
 
 const SignUp = () => {
+
+  const axiosPublic = useAxiosPublic();
+         
+
+  const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
+  const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
+           
+
     const [Error,setError] = useState('')
     const [ showPass , SetShowPass       ]     = useState(false)
     // const axiosPublic = useAxiosPublic();
-
+        
 
 const{ Creatuser , updatedUserProfile} = useContext(AuthContext);
 
@@ -37,7 +45,9 @@ const HandleLogin = (e)=>{
       const Photo =  (from.get('photo'));
       const email  =  (from.get('email'));
       const  password =  (from.get('password'))
-      console.log( typeof password); 
+      const role = (from.get('role'))
+
+      console.log(Photo); 
          //  reset error 
          setError('')
           
@@ -57,6 +67,8 @@ const HandleLogin = (e)=>{
            Creatuser(email,password,Name,Photo) 
           
            .then( Result=>  {
+
+   // user info //
             const userInfo = {
               name: Name,
               email:email
@@ -101,28 +113,22 @@ const HandleLogin = (e)=>{
 
              
              
-              <div  className=" my-20  lg:flex  " >
+              <div  className=" my-10  lg:flex  " >
 
 
-              <div className="mt-10    " >
+              <div className="   md:mt-10 "     >
                    <img src="https://i.ibb.co/hYd59np/sign-up-concept-illustration-114360-7895-1.jpg" alt="" className="rounded-l-xl" />    
               </div>
-
-               <div className="mx-auto rounded-r-xl  px-6 py-4    md:px-8 mt-8  bg-base-200  ">
-       <h1 className="lg:text-4xl font-bold text-center  border-b-4 border-y-indigo-600 pb-4 "  >  Create A New  Account</h1> 
+               <div className="mx-auto rounded-r-xl  px-2 py-2  lg:w-[700px]  md:px-8 mt-8  bg-base-200  ">
+       <h1 className="lg:text-4xl font-bold text-center  border-b-4 border-y-indigo-600 pb-1 "  >  Create A  Account</h1> 
             <form onSubmit={HandleLogin} className="card-body">
             <div className="form-control">
         <label className="label">
-        <span className="label-text font-medium "> Your  Name</span>
+        <span className="label-text font-medium ">  Username</span>
       </label>
       <input type="text"  placeholder="Your Name"  name="name" className="input input-bordered" required />
     </div>
-    <div className="form-control">
-      <label className="label">
-        <span className="label-text font-medium "> Your  photo Url  </span>
-      </label>
-      <input type="text" placeholder="photo url"  name="photo" className="input input-bordered" required />
-    </div>
+   
     <div className="form-control">
       <label className="label">
         <span className="label-text font-medium ">   Email</span>
@@ -144,12 +150,31 @@ const HandleLogin = (e)=>{
             { showPass ?<FaEyeSlash className="w-14" />  :       <FaEye className="w-12" />    }
            </span>
           </div> 
-      <label className="label">
-        <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-      </label>
+      
     </div>
+{/* IMAGE UPLOAD     */}
+    <div className="form-control w-full ">
+    <label className="label">
+        <span className="label-text font-medium ">Upload Your Photo</span>
+      </label>
+                        <input required  name="photo"    type="file" className="file-input w-full" />
+                    </div>
+
+{/* role */}
+<div className="form-control w-full">
+                            <label className="label">
+                                <span className="label-text font-medium   ">Select Role</span>
+                            </label>
+                            <select name="role" 
+                                className="select  select-bordered w-full">
+                                  
+                                  <option value="user">User</option>
+                                  <option value="seller">Seller</option>
+                            </select>
+                        </div>
+
     {  Error && <p className=" text-xl lg:ml-10 flex gap-1 text-red-600 " ><MdOutlineError  className="text-2xl"/>{Error}</p>     }
-    <div className="form-control mt-6">
+    <div className="form-control ">
       <button className="btn text-2xl font-semibold text-white bg-gradient-to-r from-sky-500 to-indigo-500">Register</button>       
     </div>
   </form>
