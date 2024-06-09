@@ -16,10 +16,7 @@ const HomeGround = () => {
             
     if(  loading ) {
         return  <div  className=" mt-20 flex justify-center    "  >
-      {/* <span className="loading loading-bars text-info  loading-xs"></span>
-<span className="loading loading-bars text-info loading-sm"></span>
-<span className="loading loading-bars text-info loading-md"></span>
-<span className="loading loading-bars text-info loading-lg"></span> */}
+     
 <img className="w-40" src="https://i.ibb.co/Vtpsz3S/Animation-1717848822065.gif" alt="" />
  </div> 
   
