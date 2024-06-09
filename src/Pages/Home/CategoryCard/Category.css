@@ -1,0 +1,19 @@
+
+  
+
+  
+  /* Animations */
+  
+
+  
+  [data-aos="example-anim3"] {
+    transform: rotate(360deg);
+    opacity: 0;
+    transition-property: transform, opacity;
+    &.aos-animate {
+      transform: rotate(0);
+      opacity: 1;
+    }
+  }
+
+  

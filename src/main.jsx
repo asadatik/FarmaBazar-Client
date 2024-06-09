@@ -17,6 +17,7 @@ import HomeGround from './Pages/Home/HomeGround';
 import AuthProvider from './Provider/AuthProvider';
 import Login from './Pages/JoinUs/Login/Login';
 import SignUp from './Pages/JoinUs/SignUp/SignUp';
+import MedicineDtls from './Pages/Home/MedicineDtls/MedicineDtls';
 
 
 const queryClient = new QueryClient();
@@ -41,6 +42,16 @@ const router = createBrowserRouter([
         path: "/signup",
         element: <SignUp></SignUp>
       },
+      {
+        path : "/allmedi/:name",
+        element:<MedicineDtls></MedicineDtls>,
+        loader: () =>
+          fetch(`${import.meta.env.VITE_API_URL}/allmedi`)
+        
+ 
+      },
+
+
       
 
   ],

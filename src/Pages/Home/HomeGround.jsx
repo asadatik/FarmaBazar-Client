@@ -6,18 +6,29 @@ import { useQuery } from "@tanstack/react-query";
 const HomeGround = () => {
     const axiosPublic = useAxiosPublic();
          
-    const {data: category = [], isPending: loading} = useQuery({
+    const {data: category = [], isPending: loading} = useQuery({  
         queryKey: ['category'], 
         queryFn: async() =>{
             const res = await axiosPublic.get('/category');
             return res.data;
         }
     })
+            
+    if(  loading ) {
+        return  <div  className=" mt-20 flex justify-center    "  >
+      {/* <span className="loading loading-bars text-info  loading-xs"></span>
+<span className="loading loading-bars text-info loading-sm"></span>
+<span className="loading loading-bars text-info loading-md"></span>
+<span className="loading loading-bars text-info loading-lg"></span> */}
+<img className="w-40" src="https://i.ibb.co/Vtpsz3S/Animation-1717848822065.gif" alt="" />
+ </div> 
+  
+     } 
 
 console.log(category)
 
     return (
-        <div className=" my-10       border-4 border-sky-400    " >
+        <div className=" my-10      " >
              
  
      {/* 9 category  */}
