@@ -1,70 +1,61 @@
-
-import {   useParams } from "react-router-dom";
-import useAxiosPublic from "../../../Hooks/AxiosPublic/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
-import { FaEye } from "react-icons/fa";
 import { useState } from "react";
 import { HiArrowLongLeft } from "react-icons/hi2";
+
+import { FaEye } from "react-icons/fa";
 import { FcPlus } from "react-icons/fc";
+import useAxiosPublic from "../../Hooks/AxiosPublic/useAxiosPublic";
 
-const MedicineDtls = () => {
-    // const data = useLoaderData()
+
+const OurShop = () => {
+
     const axiosPublic = useAxiosPublic();
-const params = useParams()
-const [isOpen, setIsOpen] = useState(false);
-const [ id ,setId] = useState();
-console.log(id)  
-    
-    const {data: categories = [], isPending: loading} = useQuery({  
-        queryKey: ['category'], 
-        queryFn: async() =>{
-            const res = await axiosPublic.get('/allmedi');
-            return res.data;
-        }
-    })
 
-
-// Get One Medicine
-
-    const toHandle =(id)=>{
-      // console.log(id) 
-          
-  const Id = Category.find(i=>i._id === id   )
- 
-  setId(Id)
-  
-    }
-       
-
-
-
-// LOADING GIF
-    if(  loading ) {
-        return  <div  className=" my-24 flex justify-center    "  >
-     
-<img className="w-40" src="https://i.ibb.co/Vtpsz3S/Animation-1717848822065.gif" alt="" />
- </div> 
-  
-     } 
-
-
-    const Category = categories.filter(item => item.category === params.name);
-              
-    console.log(Category)
-    // { name,company,price per unit}  
+    const [isOpen, setIsOpen] = useState(false);
+    const [ id ,setId] = useState();
+    console.log(id)  
         
-   
-   
-    return (
-        <div>
-              <h1 className="text-3xl font-bold  text-center w-2/3  border-y-4  border-cyan-700  p-4 font-cinzel   mx-auto    " >All medicines Of  :  <span className="uppercase md:ml-2 font-extrabold text-blue-600 md:tracking-[.35em]" > {params.name}</span>. </h1>  
-                  
-         {/*  */}
+        const {data: categories = [], isPending: loading} = useQuery({  
+            queryKey: ['category'], 
+            queryFn: async() =>{
+                const res = await axiosPublic.get('/allmedi');
+                return res.data;
+            }
+        })
+    
+    
+    // Get One Medicine
+    
+        const toHandle =(id)=>{
+          // console.log(id) 
+              
+      const Id = categories.find(i=>i._id === id   )
+     
+      setId(Id)
+      
+        }
+           
+    
+    
+    
+    // LOADING GIF
+        if(  loading ) {
+            return  <div  className=" my-24 flex justify-center    "  >
          
-                   <section className='container p-4  my-10 bg-base-300   mx-auto pt-12'>
+    <img className="w-40" src="https://i.ibb.co/Vtpsz3S/Animation-1717848822065.gif" alt="" />
+     </div> 
+      
+         } 
+
+    return (
+        <div className="my-14"   >
+              <h1 className="text-4xl font-bold    text-center md:w-1/4  border-y-4  border-cyan-700  p-4 font-cinzel   mx-auto    " > Our Shop </h1>  
+            
+
+              <section className='container p-4  my-10 bg-base-300   mx-auto pt-12'>
             <div className='text-center'>
           <h2 className='text-2xl font-bold  font-nothing     '> 
-          Total Medicine  : <span className=' px-2 py-1 md:text-xl text-center font-extrabold text-white uppercase transition-colors duration-300 transform bg-gradient-to-r from-cyan-500 to-blue-500 rounded   '  > {Category.length} </span></h2>
+          Total Medicine  : <span className=' px-2 py-1 md:text-xl text-center font-extrabold text-white uppercase transition-colors duration-300 transform bg-gradient-to-r from-cyan-500 to-blue-500 rounded   '  > {categories.length} </span></h2>
   
         </div>
   
@@ -85,13 +76,20 @@ console.log(id)
 
                       <th
                         scope='col'
-                        className='py-3.5 px-4 text-xl font-normal text-left rtl:text-right '
+                        className='py-3.5  text-xl font-normal text-left rtl:text-right '
                       >
                         <div className='flex items-center gap-x-3'>
                           <span>Name</span>
                         </div>
                       </th>
-  
+                      <th
+                        scope='col'
+                        className='py-3.5  text-xl font-normal text-left rtl:text-right '
+                      >
+                        <div className='flex items-center gap-x-3'>
+                          <span>Category</span>
+                        </div>
+                      </th>  
                       <th
                         scope='col'
                         className=' py-3.5 text-xl font-normal text-left rtl:text-right '
@@ -120,13 +118,15 @@ console.log(id)
                   <tbody>
                 
                  {
-                   Category?.map((i,index)  => (    
+                  categories?.map((i,index)  => (    
                          <tr   key={i._id} className={`font-medium  text-black font-inter text-xl  ${index % 2 === 0 ? 'bg-gray-400' : 'bg-white'}`}  >
-                <td className='pl-2 text-lg font-bold  '>
+                <td className='pl-3 text-lg font-bold  '>
                             {index + 1}.
                           </td>
 
                       <td className='' > {i.name}</td>  
+                      <td className='' > {i.category}</td>  
+                      
                        <td>  {i.company}</td>
                    <td>  {i.price}  </td>
                 
@@ -219,22 +219,10 @@ console.log(id)
         </div>
       )}
                </div>
+
+
         </div>
     );
 };
 
-export default MedicineDtls;
-
-
-// category
-// : 
-// company
-// : 
-// description
-// : 
-// image
-// : 
-// name
-// : 
-// price
-// :
+export default OurShop;

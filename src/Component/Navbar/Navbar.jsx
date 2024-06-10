@@ -29,7 +29,7 @@ const Navbar = () => {
             </div>
             <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-black rounded-box w-52">
             <a className="text-lg  text-white " >  <NavLink   to="/">  Home </NavLink></a>
-            <a className="text-lg  text-white " >  <NavLink   > Shop </NavLink></a>
+            <a className="text-lg  text-white " >  <NavLink  to='/shop' > Shop </NavLink></a>
             <a >  <div className="dropdown dropdown-bottom">
                      <div tabIndex={0} role="button" className="text-lg text-white font-semibold">languages</div>
               <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-black rounded-box w-52">
@@ -54,7 +54,7 @@ const Navbar = () => {
         <div className="navbar-center  hidden lg:flex">
           <ul className="menu menu-horizontal space-x-12 ">
            <a className="text-2xl text-white font-semibold " >  <NavLink   to="/">Home</NavLink></a>
-           <a className="text-2xl text-white font-semibold " >  <NavLink   >Shop</NavLink></a>
+           <a className="text-2xl text-white font-semibold " >  <NavLink to='/shop'  >Shop</NavLink></a>
             <a >  <div className="dropdown dropdown-bottom z-50  ">
                      <div tabIndex={0} role="button" className="text-2xl text-white font-semibold">languages</div>
               <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-black rounded-box w-52">
