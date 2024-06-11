@@ -19,6 +19,7 @@ import Login from './Pages/JoinUs/Login/Login';
 import SignUp from './Pages/JoinUs/SignUp/SignUp';
 import MedicineDtls from './Pages/Home/MedicineDtls/MedicineDtls';
 import OurShop from './Pages/Shop/OurShop';
+import Cart from './Pages/Dashborad/Cart/Cart';
 
 
 const queryClient = new QueryClient();
@@ -51,6 +52,11 @@ const router = createBrowserRouter([
       {
         path : "/shop",
         element : <OurShop></OurShop>
+      },
+       {
+        path : "/dashboard/cart"
+        ,
+        element : <Cart></Cart>
       }
 
 

@@ -53,7 +53,7 @@ const Login = () => {
         .then(result =>  {
         console.log(result.user) 
        
-        Navigate(  Location?.state ? Location.state : '/' )
+        Navigate( location.state?.from?.pathname || "/" , { replace: true })
         } )
         }
           

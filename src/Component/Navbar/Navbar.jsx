@@ -1,11 +1,17 @@
 import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { FaShoppingCart } from "react-icons/fa";
+import useCart from "../../Hook/useCart/useCart";
+import { TiShoppingCart } from "react-icons/ti";
 
 const Navbar = () => {
     const { user,LogOut } = useContext(AuthContext)
     const[theme,setTheme] = useState('light')  
      
+    const [cart] = useCart();
+console.log(cart);
+
     useEffect(()=>{
      localStorage.setItem('theme',theme)
      const localTheme = localStorage.getItem('theme')
@@ -30,6 +36,14 @@ const Navbar = () => {
             <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-black rounded-box w-52">
             <a className="text-lg  text-white " >  <NavLink   to="/">  Home </NavLink></a>
             <a className="text-lg  text-white " >  <NavLink  to='/shop' > Shop </NavLink></a>
+            <a className="text-2xl text-white font-semibold " >  <NavLink to="/dashboard/cart">
+                <button className="btn bg-violet-100 btn-sm ">
+                        {/* <TiShoppingCart  className="mr-2 text-black text-xl  "><TiShoppingCart /> */}
+                        <TiShoppingCart    className=" text-black text-xl  "     />
+                        <div className="badge  badge-secondary">+{cart.length} </div>
+                         </button>
+                         </NavLink>
+           </a>
             <a >  <div className="dropdown dropdown-bottom">
                      <div tabIndex={0} role="button" className="text-lg text-white font-semibold">languages</div>
               <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-black rounded-box w-52">
@@ -43,18 +57,23 @@ const Navbar = () => {
                                    </div>  </a>          
             </ul>
           </div>
-            
          <div>
          <a className="  lg:text-3xl font-extrabold font-cinzel uppercase text-indigo-300  ">farma<span className="text-pink-400" >bazar</span> </a>
-        
-
          </div>
-
         </div>
         <div className="navbar-center  hidden lg:flex">
           <ul className="menu menu-horizontal space-x-12 ">
            <a className="text-2xl text-white font-semibold " >  <NavLink   to="/">Home</NavLink></a>
            <a className="text-2xl text-white font-semibold " >  <NavLink to='/shop'  >Shop</NavLink></a>
+           <a className="text-2xl text-white font-semibold " >  <NavLink to="/dashboard/cart">
+                <button className="btn bg-violet-100 btn-sm ">
+                        {/* <TiShoppingCart  className="mr-2 text-black text-xl  "><TiShoppingCart /> */}
+                        <TiShoppingCart    className=" text-black text-xl  "     />
+                        <div className="badge  badge-secondary">+{cart.length} </div>
+                         </button>
+                         </NavLink>
+           </a>
+         
             <a >  <div className="dropdown dropdown-bottom z-50  ">
                      <div tabIndex={0} role="button" className="text-2xl text-white font-semibold">languages</div>
               <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-black rounded-box w-52">
