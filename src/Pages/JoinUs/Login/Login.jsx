@@ -52,8 +52,9 @@ const Login = () => {
         googleLogin()
         .then(result =>  {
         console.log(result.user) 
-       
-        Navigate( location.state?.from?.pathname || "/" , { replace: true })
+       Navigate(  Location?.state ? Location.state : '/' )
+        
+     
         } )
         }
           

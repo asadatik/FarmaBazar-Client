@@ -56,7 +56,7 @@ const Cart = () => {
             <div className='text-center'>
           {/* <h2 className='text-2xl   font-nothing     '> 
           Total Medicine  : <span className=' px-2 py-1 md:text-xl text-center font-extrabold text-white uppercase transition-colors duration-300 transform bg-gradient-to-r from-cyan-500 to-blue-500 rounded   '  > {cart.length} </span></h2> */}
-             <div className="flex justify-evenly ">
+             <div className=" md:flex justify-evenly ">
                 <h2 className="md:text-2xl font-bold font-nothing  ">Items: {cart.length}</h2>
                 <h2 className="md:text-2xl font-bold font-nothing ">Total Price: {totalPrice}</h2>
               <Link  to='/dashboard/payment'  >  <button  disabled={!cart.length}   className="btn btn-sm  text-white text-xl bg-amber-600  hover:bg-yellow-500   hover:text-slate-800 "> checkout</button></Link>

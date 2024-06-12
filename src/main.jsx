@@ -20,6 +20,9 @@ import SignUp from './Pages/JoinUs/SignUp/SignUp';
 import MedicineDtls from './Pages/Home/MedicineDtls/MedicineDtls';
 import OurShop from './Pages/Shop/OurShop';
 import Cart from './Pages/Dashborad/Cart/Cart';
+import PriveteRoute from './Root/PrivetRoute/PrivetRoute';
+import Dashboard from './Root/Dashboard/Dashboard';
+import AdminHome from './Pages/Dashboard/Admin/AdminHome';
 
 
 const queryClient = new QueryClient();
@@ -46,25 +49,80 @@ const router = createBrowserRouter([
       },
       {
         path : "/allmedi/:name",
-        element:<MedicineDtls></MedicineDtls>,
+        element:<PriveteRoute><MedicineDtls></MedicineDtls></PriveteRoute>,
        
       },
       {
         path : "/shop",
-        element : <OurShop></OurShop>
+        element : <PriveteRoute><OurShop></OurShop></PriveteRoute>
       },
-       {
-        path : "/dashboard/cart"
+      
+      {
+        path : "/cart"
         ,
-        element : <Cart></Cart>
+        element : <PriveteRoute> <Cart></Cart> </PriveteRoute>
       }
-
 
       
 
   ],
 
 },
+ /////// DASHBOARD ROUTE ////////
+{
+  path: 'dash',
+  element:<PriveteRoute>  <Dashboard></Dashboard></PriveteRoute>,
+  children: [
+/////  NORMAL USER ROUTE
+
+// {
+//   path: 'userHome',
+//   element: <UserHome></UserHome>
+// },
+
+//     {
+//       path: 'cart',
+//       element:<Cart></Cart>
+//     },
+
+//     {
+//       path: 'payment',
+//       element:<Payment></Payment>
+//     },
+
+
+// //////  ADMIN USER ROUTES
+{
+  path: 'adminHome',
+  element: <AdminHome></AdminHome>
+},
+// {
+//   path: 'addItems',
+//   element: <AddItem></AddItem>
+// },
+
+// {
+//   path: 'manageItem',
+//   element:<ManageItem></ManageItem>
+// },
+
+// {
+//   path: 'updateItem/:id',
+//   element: <UpdatedItem></UpdatedItem>,
+                      
+// },
+
+//     {
+//       path: 'users',
+//       element: <AllUser></AllUser>
+//     },
+
+
+
+  ]
+} 
+
+
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
