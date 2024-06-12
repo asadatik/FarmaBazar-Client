@@ -59,7 +59,7 @@ const Cart = () => {
              <div className="flex justify-evenly ">
                 <h2 className="md:text-2xl font-bold font-nothing  ">Items: {cart.length}</h2>
                 <h2 className="md:text-2xl font-bold font-nothing ">Total Price: {totalPrice}</h2>
-              <Link  to='/dashboard/payment'  >  <button  disabled={!cart.length}   className="btn btn-sm  text-white text-xl bg-amber-600  hover:bg-yellow-500 ">Pay</button></Link>
+              <Link  to='/dashboard/payment'  >  <button  disabled={!cart.length}   className="btn btn-sm  text-white text-xl bg-amber-600  hover:bg-yellow-500   hover:text-slate-800 "> checkout</button></Link>
 
             </div>
         </div>

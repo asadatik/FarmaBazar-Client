@@ -34,9 +34,9 @@ console.log(cart);
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5  text-white w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
             </div>
             <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-black rounded-box w-52">
-            <a className="text-lg  text-white " >  <NavLink   to="/">  Home </NavLink></a>
-            <a className="text-lg  text-white " >  <NavLink  to='/shop' > Shop </NavLink></a>
-            <a className="text-2xl text-white font-semibold " >  <NavLink to="/dashboard/cart">
+            <a className="text-base  text-white " >  <NavLink   to="/">  Home </NavLink></a>
+            <a className="text-base  text-white " >  <NavLink  to='/shop' > Shop </NavLink></a>
+             <a className="text-base text-white  " >  <NavLink to="/dashboard/cart">
                 <button className="btn bg-violet-100 btn-sm ">
                         {/* <TiShoppingCart  className="mr-2 text-black text-xl  "><TiShoppingCart /> */}
                         <TiShoppingCart    className=" text-black text-xl  "     />
@@ -44,8 +44,8 @@ console.log(cart);
                          </button>
                          </NavLink>
            </a>
-            <a >  <div className="dropdown dropdown-bottom">
-                     <div tabIndex={0} role="button" className="text-lg text-white font-semibold">languages</div>
+           <a >  <div className="dropdown dropdown-bottom">
+                     <div tabIndex={0} role="button" className="text-base text-white ">languages</div>
               <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-black rounded-box w-52">
                  <li>
                     <h1>  English  </h1>
@@ -54,7 +54,8 @@ console.log(cart);
                      <h1>  Bangla    </h1>
                   </li>
                 </ul>
-                                   </div>  </a>          
+             </div>  </a> 
+
             </ul>
           </div>
          <div>
@@ -65,15 +66,7 @@ console.log(cart);
           <ul className="menu menu-horizontal space-x-12 ">
            <a className="text-2xl text-white font-semibold " >  <NavLink   to="/">Home</NavLink></a>
            <a className="text-2xl text-white font-semibold " >  <NavLink to='/shop'  >Shop</NavLink></a>
-           <a className="text-2xl text-white font-semibold " >  <NavLink to="/dashboard/cart">
-                <button className="btn bg-violet-100 btn-sm ">
-                        {/* <TiShoppingCart  className="mr-2 text-black text-xl  "><TiShoppingCart /> */}
-                        <TiShoppingCart    className=" text-black text-xl  "     />
-                        <div className="badge  badge-secondary">+{cart.length} </div>
-                         </button>
-                         </NavLink>
-           </a>
-         
+          
             <a >  <div className="dropdown dropdown-bottom z-50  ">
                      <div tabIndex={0} role="button" className="text-2xl text-white font-semibold">languages</div>
               <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-black rounded-box w-52">
@@ -85,6 +78,16 @@ console.log(cart);
                   </li>
                 </ul>
                                    </div>  </a>
+           <a className="text-2xl text-white font-semibold " >  <NavLink to="/dashboard/cart">
+                <button className="btn bg-violet-100 btn-sm ">
+                        {/* <TiShoppingCart  className="mr-2 text-black text-xl  "><TiShoppingCart /> */}
+                        <TiShoppingCart    className=" text-black text-xl  "     />
+                        <div className="badge  badge-secondary">+{cart.length} </div>
+                         </button>
+                         </NavLink>
+           </a>
+         
+
           </ul>
         </div>
         <div className="navbar-end space-x-2 lg:space-x-10  md:space-x-6   "> 
