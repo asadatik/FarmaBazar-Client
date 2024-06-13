@@ -76,20 +76,7 @@ const router = createBrowserRouter([
   children: [
 /////  NORMAL USER ROUTE
 
-// {
-//   path: 'userHome',
-//   element: <UserHome></UserHome>
-// },
 
-//     {
-//       path: 'cart',
-//       element:<Cart></Cart>
-//     },
-
-//     {
-//       path: 'payment',
-//       element:<Payment></Payment>
-//     },
 
 
 // //////  ADMIN USER ROUTES
@@ -108,16 +95,7 @@ const router = createBrowserRouter([
 //   element: <AddItem></AddItem>
 // },
 
-// {
-//   path: 'manageItem',
-//   element:<ManageItem></ManageItem>
-// },
 
-// {
-//   path: 'updateItem/:id',
-//   element: <UpdatedItem></UpdatedItem>,
-                      
-// },
 
 
 

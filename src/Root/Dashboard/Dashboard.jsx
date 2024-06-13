@@ -5,6 +5,7 @@ import useAxiosPublic from "../../Hooks/AxiosPublic/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
+import AdminHome from "../../Pages/Dashboard/Admin/AdminHome";
 
 
 
@@ -27,7 +28,14 @@ const Dashboard = () => {
     })
 
     if (isLoading) {
-        return <div className="text-center  mt-10 text-xl font-cinzel " >Loading users data...</div>;
+        return <div className="text-center  mt-10 text-xl font-cinzel " >Loading users data 
+                                                                                            
+                                                                                           <span>
+                                                                                           <span className="loading loading-dots loading-md"></span>
+                                                                                           <span className="loading loading-dots loading-lg"></span>
+                                                                                           </span>
+                                 
+          </div>;
     }
 
     if (error  ) {
@@ -49,11 +57,8 @@ const Dashboard = () => {
               {/* admin  */}
                     { userRole==='admin' &&
                         <>
-                            <li>
-                                <NavLink to="/dash/adminHome">
-                                    <FaHome></FaHome>
-                                    Admin Home</NavLink>
-                            </li>
+                               
+                          
                             <li>
                                 <NavLink to="/dash/users">
                                     <FaUsers></FaUsers>
@@ -149,10 +154,22 @@ const Dashboard = () => {
 
                 </ul>
             </div>
-            {/* ////////////////////////////////////////////// */}
+       {/* ////////////////////////////////////////////// */}
             <div className="flex-1  p-8">
-                <Outlet></Outlet>
+                    { userRole==='admin' &&
+                        <>  <AdminHome></AdminHome>  </>}
 
+                       {
+                        userRole==='seller' && <>  <p className=" " > Seller Home  </p>   </>
+                       }
+                         {
+                        userRole==='user' && <>  <p className=" " > user Home  </p>   </>
+                       }
+                        
+
+
+                    <div className="my-10" >  <Outlet></Outlet>  </div>
+                    
             </div>
         </div>
     );
