@@ -19,7 +19,7 @@ const PriveteRoute = ({ children }) => {
     if (user) {
         return children;
     }
-    return  <Navigate state={location.pathname}  to='/joinUs'></Navigate>
+    return  <Navigate to="/joinUs" state={{from: location}} replace></Navigate>
 };
 
 export default PriveteRoute;

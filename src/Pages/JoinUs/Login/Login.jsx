@@ -5,12 +5,16 @@ import { useContext } from 'react';
 
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../../Provider/AuthProvider';
+import useAxiosPublic from '../../../Hooks/AxiosPublic/useAxiosPublic';
 
 
 const Login = () => {
     const{ login,googleLogin } = useContext(AuthContext);
-    const Location = useLocation();
+    const location = useLocation();
          const Navigate =  useNavigate();
+   const AxiosPublic = useAxiosPublic()
+   const from = location.state?.from?.pathname || "/";
+  
 
  // Email+Pass
     const handleSignIn=(e)=>{
@@ -29,8 +33,9 @@ const Login = () => {
               showConfirmButton: false,
               timer: 2500
             });
-    
-       Navigate(  Location?.state ? Location.state : '/' )
+            Navigate(from, { replace: true });
+
+      
     }     )
     .catch(error=>{
      console.error(error.message)  
@@ -51,11 +56,31 @@ const Login = () => {
     const LoginWithGoogle=()=>{        
         googleLogin()
         .then(result =>  {
-        console.log(result.user) 
-       Navigate(  Location?.state ? Location.state : '/' )
-        
-     
-        } )
+          console.log(result.user)
+      // Extra Work (   user Info    ) 
+          const userInfo = {
+           name: result.user?.displayName,
+           email: result.user?.email,
+           role: 'user'
+          } 
+           AxiosPublic.post('/users', userInfo)
+           .then(res =>{
+            Swal.fire({
+              position: "center",
+              icon: "success",
+              title: "User Login Successfully",
+              showConfirmButton: false,
+              timer: 2500
+            });
+               console.log(res.data);
+               Navigate(from, { replace: true });
+           })
+      
+       } )
+         
+   
+
+
         }
           
 

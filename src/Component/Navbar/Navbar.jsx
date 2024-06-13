@@ -126,7 +126,7 @@ console.log(cart);
                     <h1>  Update Profile  </h1>
                   </li> 
                   <li>
-                 <Link to='dash/adminHome'   >    <h1>  Dashboard   </h1></Link>
+                 <Link to='dash'   >    <h1>  Dashboard   </h1></Link>
                   </li>
                   <li className="">
                   <Link onClick={LogOut} className="  p-1 bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white  flex justify-center  "  >Log Out</Link> 

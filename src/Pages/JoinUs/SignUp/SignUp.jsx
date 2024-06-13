@@ -37,7 +37,11 @@ const onSubmit = async (data) => {
                 'content-type': 'multipart/form-data'
             }
         });
-       const uploadedImage  = resImageUpload.data.data.display_url
+
+       const uploadedImage  = resImageUpload.data.data.display_url;
+
+ //
+
   try {
       const result = await Creatuser(data.email, data.password);
       const loggedUser = result.user;
@@ -49,7 +53,7 @@ const onSubmit = async (data) => {
       const userInfo = {
           name: data.name,
           email: data.email,
-          photoURL: uploadedImage
+          role: data.role
       };
       
       const res = await axiosPublic.post('/users', userInfo);
@@ -68,8 +72,13 @@ const onSubmit = async (data) => {
       }
   }
    catch (error) {
-      console.error(error);
-    
+    //   console.error(error);
+    //   setError(error.message)
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+         text:"Something Wrong! please try again" ,
+     })
   }
 };
     return (
@@ -102,24 +111,32 @@ const onSubmit = async (data) => {
                                     <span className="label-text">Upload Your Photo</span>
                                 </label>    
                         <input {...register("photoURL", { required: true })} type="file" className="file-input w-full " />
+                        {errors.photoURL && <span className="text-red-600">Upload your Photo Url</span>}
                     </div>
-                   {/*  */}
-                            {/* <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Photo URL</span>
-                                </label>
-                                <input type="text"  {...register("photoURL", { required: true })} placeholder="Photo URL" className="input input-bordered" />
-                                {errors.photoURL && <span className="text-red-600">Photo URL is required</span>}
-                            </div> */}
-
-
+                   {/*  */}    
+                          
+    {/* role */}
+    <div className="form-control w-full">
+                            <label className="label">
+                                <span className="label-text">Role</span>
+                            </label>
+                            <select defaultValue="default" {...register('role', { required: true })}
+                                className="select select-bordered w-full">
+                                <option disabled value="default">Select a category</option>
+                                <option value="user">user</option>
+                                <option value="seller">seller</option>
+                                
+                            </select>
+                        </div>
+                    {/* email */}
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
                                 <input type="email"  {...register("email", { required: true })} name="email" placeholder="email" className="input input-bordered" />
-                                {errors.email && <span className="text-red-600">Email is required</span>}
+                                {errors.email && <span className="text-red-600">Please Enter your Email Address</span>}
                             </div>
+                    {/* password */}
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Password</span>
@@ -135,7 +152,7 @@ const onSubmit = async (data) => {
                                
                             </div>
                             <div className="form-control ">
-      <button className="btn text-2xl mt-10 font-semibold text-white bg-gradient-to-r from-sky-500 to-indigo-500">Register</button>       
+      <button className="btn text-2xl mt-2 font-semibold text-white bg-gradient-to-r from-sky-500 to-indigo-500">Register</button>       
     </div>
                         </form>
       <h1 className="text-center text-xl  "  >Already have an Account ? < Link to='/joinUs' className=" font-bold text-green-700 text-2xl  " >Login</Link></h1>

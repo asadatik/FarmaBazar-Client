@@ -23,6 +23,7 @@ import Cart from './Pages/Dashborad/Cart/Cart';
 import PriveteRoute from './Root/PrivetRoute/PrivetRoute';
 import Dashboard from './Root/Dashboard/Dashboard';
 import AdminHome from './Pages/Dashboard/Admin/AdminHome';
+import AllUser from './Pages/Dashboard/Admin/AllUser';
 
 
 const queryClient = new QueryClient();
@@ -96,6 +97,12 @@ const router = createBrowserRouter([
   path: 'adminHome',
   element: <AdminHome></AdminHome>
 },
+
+    {
+      path: 'users',
+      element: <AllUser></AllUser>
+    },
+
 // {
 //   path: 'addItems',
 //   element: <AddItem></AddItem>
@@ -112,10 +119,6 @@ const router = createBrowserRouter([
                       
 // },
 
-//     {
-//       path: 'users',
-//       element: <AllUser></AllUser>
-//     },
 
 
 

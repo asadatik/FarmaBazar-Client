@@ -1,11 +1,15 @@
 
-import {   useParams } from "react-router-dom";
+import {   useLocation, useNavigation, useParams } from "react-router-dom";
 import useAxiosPublic from "../../../Hooks/AxiosPublic/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
 import { FaEye } from "react-icons/fa";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { HiArrowLongLeft } from "react-icons/hi2";
 import { FcPlus } from "react-icons/fc";
+import Swal from "sweetalert2";
+import { AuthContext } from "../../../Provider/AuthProvider";
+import useCart from "../../../Hook/useCart/useCart";
+import axios from "axios";
 
 const MedicineDtls = () => {
     // const data = useLoaderData()
@@ -13,8 +17,11 @@ const MedicineDtls = () => {
 const params = useParams()
 const [isOpen, setIsOpen] = useState(false);
 const [ id ,setId] = useState();
-console.log(id)  
-    
+const navigate = useNavigation();
+const location = useLocation();
+const{ user} = useContext(AuthContext);
+const [, refetch] = useCart();
+ 
     const {data: categories = [], isPending: loading} = useQuery({  
         queryKey: ['category'], 
         queryFn: async() =>{
@@ -35,6 +42,55 @@ console.log(id)
   
     }
        
+    const handleAddToCart = (id) => {
+      const Id = categories.find(i=>i._id === id   )
+      if (user && user.email) {
+          // send cart item to the database
+          const cartItem = {
+              menuId: Id._id,
+              email: user.email,
+              name: Id.name,
+              company:Id.company,
+              quantity:Id.quantity,
+              price: Id.price,
+              image:Id.image
+
+          }
+          console.log(cartItem)
+          axios.post(`${import.meta.env.VITE_API_URL}/carts`, cartItem)
+              .then(res => {
+                  console.log(res.data)
+                  if (res.data.insertedId) {
+                      Swal.fire({
+                          position: "center",
+                          icon: "success",
+                          title: `${Id.name} added to your cart`,
+                          showConfirmButton: false,
+                          timer: 1500
+                      });
+                      // refetch cart to update the cart items count
+                      refetch()
+                  }
+
+              })
+      }
+      else {
+          Swal.fire({
+              title: "You are not Logged In",
+              text: "Please login to add to the cart?",
+              icon: "warning",
+              showCancelButton: true,
+              confirmButtonColor: "#3085d6",
+              cancelButtonColor: "#d33",
+              confirmButtonText: "Yes, login!"
+          }).then((result) => {
+              if (result.isConfirmed) {
+                  //   send the user to the login page
+                  navigate('/joinUs', { state: { from: location } })
+              }
+          });
+      }
+  }   
 
 
 
@@ -48,8 +104,7 @@ console.log(id)
      } 
 
 
-    const Category = categories.filter(item => item.category === params.name);
-              
+    const Category = categories.filter(item => item.category === params.name);       
     console.log(Category)
     // { name,company,price per unit}  
         
@@ -132,7 +187,7 @@ console.log(id)
                 
                  
                     <td  className="flex py-2 gap-4  "  >
-                            <button    className='btn btn-sm   btn-outline  border-0 bg-slate-100 border-b-4 border-orange-400  text-lg   text-black ' >select   </button>  
+                            <button   onClick={()=>handleAddToCart(i._id)}   className='btn btn-sm   btn-outline  border-0 bg-slate-100 border-b-4 border-orange-400  text-lg   text-black ' >select   </button>  
                
                              <button  onClick={() => { setIsOpen(true); toHandle(i._id); }}   className='btn btn-sm rounded-full   text-xl bg-violet-400   text-black ' > <FaEye className="text-xl"     /> </button>  
 
@@ -226,15 +281,3 @@ console.log(id)
 export default MedicineDtls;
 
 
-// category
-// : 
-// company
-// : 
-// description
-// : 
-// image
-// : 
-// name
-// : 
-// price
-// :

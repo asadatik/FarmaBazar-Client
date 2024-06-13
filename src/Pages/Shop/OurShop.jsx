@@ -80,7 +80,7 @@ const OurShop = () => {
                   confirmButtonText: "Yes, login!"
               }).then((result) => {
                   if (result.isConfirmed) {
-                      //   send the user to the login page
+                    
                       navigate('/joinUs', { state: { from: location } })
                   }
               });
