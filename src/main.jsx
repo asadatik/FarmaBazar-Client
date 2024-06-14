@@ -24,6 +24,7 @@ import PriveteRoute from './Root/PrivetRoute/PrivetRoute';
 import Dashboard from './Root/Dashboard/Dashboard';
 import AdminHome from './Pages/Dashboard/Admin/AdminHome';
 import AllUser from './Pages/Dashboard/Admin/AllUser';
+import ManageCategory from './Pages/Dashboard/Admin/ManageCategory';
 
 
 const queryClient = new QueryClient();
@@ -89,14 +90,12 @@ const router = createBrowserRouter([
       path: 'users',
       element: <AllUser></AllUser>
     },
+    {
+      path: 'manageCategory',
+      element: <ManageCategory> </ManageCategory>
+    },
 
-// {
-//   path: 'addItems',
-//   element: <AddItem></AddItem>
-// },
-
-
-
+      
 
 
 

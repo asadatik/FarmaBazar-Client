@@ -1,4 +1,4 @@
-import { FaAd, FaBook, FaCalendar, FaHome, FaList, FaShoppingCart, FaUsers, FaUtensils } from "react-icons/fa";
+import { FaAd, FaBook, FaCalendar, FaHome, FaList, FaShoppingCart, FaUsers, } from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
 import useCart from "../../Hook/useCart/useCart";
 import useAxiosPublic from "../../Hooks/AxiosPublic/useAxiosPublic";
@@ -14,7 +14,6 @@ const Dashboard = () => {
     const [cart] = useCart();
     const {user} = useContext(AuthContext);
     console.log(user.email);
-
 
 
 
@@ -64,15 +63,11 @@ const Dashboard = () => {
                                     <FaUsers></FaUsers>
                                     Manage Users</NavLink>
                             </li>
+                           
                             <li>
-                                <NavLink to="/dash/addItems">
-                                    <FaUtensils></FaUtensils>
-                                    Add Items</NavLink>
-                            </li>
-                            <li>
-                                <NavLink to="/dash/manageItem">
+                                <NavLink to="/dash/manageCategory">
                                     <FaList></FaList>
-                                    Manage Items</NavLink>
+                                    Manage Category</NavLink>
                             </li>
                             <li>
                                 <NavLink to="/dash/bookings">

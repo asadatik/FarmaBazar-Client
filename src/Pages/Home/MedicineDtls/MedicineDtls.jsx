@@ -259,14 +259,12 @@ const [, refetch] = useCart();
                 <div className="sm:flex  text-center  sm:items-center">
                   <button
                     onClick={() => setIsOpen(false)}
-                    className="w-full lg:px-4 py-1 mt-2 font-semibold tracking-wide text-gray-700 capitalize transition-colors duration-300 transform border border-gray-200 rounded-md sm:mt-0 sm:w-auto sm:mx-2 dark:text-gray-200 dark:border-gray-700 dark:hover:bg-gray-800 hover:bg-gray-100 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-40"
+                    className="w-full flex lg:px-4 py-1 mt-2 font-semibold tracking-wide text-gray-700 capitalize transition-colors duration-300 transform border border-gray-200 rounded-md sm:mt-0 sm:w-auto sm:mx-2 dark:text-gray-200 dark:border-gray-700 dark:hover:bg-gray-800 hover:bg-gray-100 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-40"
                   >
-                    <HiArrowLongLeft className="text-2xl   w-10 " />
+                    <HiArrowLongLeft className="text-2xl   w-10 " />  back
                   </button>
 
-                  <button className="w-full   px-4 py-1 mt-2 text-base  font-nothing font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-md sm:w-auto sm:mt-0 hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40">
-                  Select
-                  </button>
+               
                 </div>
               </div>
             </div>

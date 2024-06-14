@@ -19,9 +19,9 @@ const Login = () => {
  // Email+Pass
     const handleSignIn=(e)=>{
       e.preventDefault()
-      const from = new FormData(e.currentTarget);
-      const email = from.get('email')  ;
-      const password = from.get('password')  ; 
+      const Form = new FormData(e.currentTarget);
+      const email = Form.get('email')  ;
+      const password = Form.get('password')  ; 
       console.log(email,password) 
       login(email,password)
       .then( Result=>{
