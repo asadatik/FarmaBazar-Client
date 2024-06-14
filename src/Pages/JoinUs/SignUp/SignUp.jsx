@@ -80,6 +80,8 @@ const onSubmit = async (data) => {
          text:"Something Wrong! please try again" ,
      })
   }
+
+  
 };
     return (
           <div className="mt-10    hero  " >

@@ -51,12 +51,13 @@ const router = createBrowserRouter([
       },
       {
         path : "/allmedi/:name",
-        element:<PriveteRoute><MedicineDtls></MedicineDtls></PriveteRoute>,
+        element:<MedicineDtls></MedicineDtls>,
        
       },
       {
         path : "/shop",
-        element : <PriveteRoute><OurShop></OurShop></PriveteRoute>
+        
+        element : <OurShop></OurShop>
       },
       
       {
