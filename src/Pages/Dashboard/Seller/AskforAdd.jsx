@@ -43,9 +43,9 @@ const AskforAdd = () => {
                     Swal.fire({
                         position: "top-end",
                         icon: "success",
-                        title: "Send you advertisement request.",
+                        title: "Send your advertisement request.",
                         showConfirmButton: false,
-                        timer: 2000
+                        timer: 2500
                     });
                 })
         }

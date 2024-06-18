@@ -7,7 +7,7 @@ const Route = () => {
         <div>
             <Navbar></Navbar>
 
-           <div className="mx-auto container"  >
+           <div className="px-1"  >
            <Outlet></Outlet>
            </div>
                

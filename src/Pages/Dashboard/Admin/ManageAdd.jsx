@@ -23,7 +23,7 @@ const ManageAdd = () => {
                 // Refetch to update the list
                 refetch();
 
-                // Remove from slider 
+                // Remove from slider if it's rejected
                 const deleteRes = await axiosSecure.delete(`/sliders/${id}`);
                 if (deleteRes.data.deletedCount > 0) {
                     Swal.fire({
@@ -47,14 +47,19 @@ const ManageAdd = () => {
         }
     };
 
+
+
+
+    
+    
     // Handle adding an advertisement to the slider
     const HandleDataAdd = async (advert) => {
         try {
-         
+
             const status = { status: 'Running' };
             const res = await axiosSecure.patch(`/advert/${advert._id}`, status);
             if (res.data.modifiedCount > 0) {
-              
+
                 refetch();
                 const sliderData = {
                     id: advert._id,
@@ -239,18 +244,17 @@ const ManageAdd = () => {
                                                         <td>{i.status}
 
                                                         </td>
-
                                                         <td className="py-4 flex space-x-2">
                                                     {i.status === 'Running' ? (
                                                         <button
-                                                            className="btn btn-outline btn-sm text-black bg-red-400 hover:bg-red-500"
+                                                            className="btn btn-outline btn-sm bg-red-400 hover:bg-red-500"
                                                             onClick={() => handleReject(i._id)}
                                                         >
                                                             Reject
                                                         </button>
                                                     ) : (
                                                         <button
-                                                            className="btn text-black btn-outline btn-sm bg-green-400 hover:bg-green-500"
+                                                            className="btn btn-outline btn-sm bg-green-400 hover:bg-green-500"
                                                             onClick={() => HandleDataAdd(i)}
                                                         >
                                                             Add to Slider

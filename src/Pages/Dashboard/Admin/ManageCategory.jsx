@@ -13,6 +13,7 @@ import { useNavigate } from "react-router-dom";
 
 const ManageCategory = () => {
   const axiosPublic = useAxiosPublic();
+  
   const [Categoryid, setId] = useState();
   const [isOpenAdd, setIsOpenAdd] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -47,9 +48,10 @@ const ManageCategory = () => {
       confirmButtonText: "Yes, delete it!"
     }).then((result) => {
       if (result.isConfirmed) {
-
+          
         axiosPublic.delete(`/category/${user._id}`)
           .then(res => {
+            console.log(res)
             if (res.data.deletedCount > 0) {
               refetch();
               Swal.fire({
