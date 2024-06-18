@@ -28,6 +28,7 @@ import ManageCategory from './Pages/Dashboard/Admin/ManageCategory';
 import AskforAdd from './Pages/Dashboard/Seller/AskforAdd';
 import { HelmetProvider } from 'react-helmet-async';
 import ManageAdd from './Pages/Dashboard/Admin/ManageAdd';
+import MangeAllMedicine from './Pages/Dashboard/Seller/MangeAllMedicine';
 
 
 const queryClient = new QueryClient();
@@ -42,7 +43,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <HomeGround></HomeGround>
-      }  ,
+      },
 
       {
         path: "/joinUs",
@@ -53,63 +54,70 @@ const router = createBrowserRouter([
         element: <SignUp></SignUp>
       },
       {
-        path : "/allmedi/:name",
-        element:<MedicineDtls></MedicineDtls>,
-       
+        path: "/allmedi/:name",
+        element: <MedicineDtls></MedicineDtls>,
+
       },
       {
-        path : "/shop",
-        
-        element : <OurShop></OurShop>
+        path: "/shop",
+
+        element: <OurShop></OurShop>
       },
-      
+
       {
-        path : "/cart"
+        path: "/cart"
         ,
-        element : <PriveteRoute> <Cart></Cart> </PriveteRoute>
+        element: <PriveteRoute> <Cart></Cart> </PriveteRoute>
       }
 
-      
-
-  ],
-
-},
- /////// DASHBOARD ROUTE ////////
-{
-  path: 'dash',
-  element:<PriveteRoute>  <Dashboard></Dashboard></PriveteRoute>,
-  children: [
-///// seller 
-
-{
-path : 'askforAdd',
-element:<AskforAdd></AskforAdd>
-},
 
 
-// //////  ADMIN USER ROUTES
-{
-  path: 'adminHome',
-  element: <AdminHome></AdminHome>
-},
+    ],
 
-    {
-      path: 'users',
-      element: <AllUser></AllUser>
-    },
-    {
-      path: 'manageCategory',
-      element: <ManageCategory> </ManageCategory>
-    },
-       {
+  },
+  /////// DASHBOARD ROUTE ////////
+  {
+    path: 'dash',
+    element: <PriveteRoute>  <Dashboard></Dashboard></PriveteRoute>,
+    children: [
+      ///// seller 
+
+      {
+        path: 'askforAdd',
+        element: <AskforAdd></AskforAdd>
+      },
+      {
+        path: 'manageMedi',
+        element:<MangeAllMedicine></MangeAllMedicine>
+      }
+       ,
+
+
+
+       
+      // //////  ADMIN USER ROUTES
+      {
+        path: 'adminHome',
+        element: <AdminHome></AdminHome>
+      },
+
+      {
+        path: 'users',
+        element: <AllUser></AllUser>
+      },
+      {
+        path: 'manageCategory',
+        element: <ManageCategory> </ManageCategory>
+      },
+      {
         path: 'manageBanner',
         element: <ManageAdd></ManageAdd>
-       }
+      }
 
 
 
-  ]
-} 
+    ]
+  }
 
 
 ]);
@@ -117,19 +125,19 @@ element:<AskforAdd></AskforAdd>
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
 
-            <AuthProvider>
-            <QueryClientProvider client={queryClient}>
-              <HelmetProvider>
-        
-                   <RouterProvider router={router} />
-         
+    <AuthProvider>
+      <QueryClientProvider client={queryClient}>
+        <HelmetProvider>
 
-               </HelmetProvider>
-         
-    
-             </QueryClientProvider>
+          <RouterProvider router={router} />
 
-            
-            </AuthProvider>
+
+        </HelmetProvider>
+
+
+      </QueryClientProvider>
+
+
+    </AuthProvider>
   </React.StrictMode>,
 )

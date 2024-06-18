@@ -28,7 +28,7 @@ console.log(category)
     return (
         <div className=" my-10      " >
              
-             <Slider>       </Slider>
+             <Slider> </Slider>
 
      {/* 9 category  */}
              <div className="grid  mx-auto container  gap-x-2 gap-y-10 md:grid-cols-2 lg:grid-cols-3"  >

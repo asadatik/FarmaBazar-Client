@@ -93,7 +93,7 @@ const Dashboard = () => {
                         <>
 
                             <li>
-                                <NavLink to="/dash/manage-medicines">
+                                <NavLink to="/dash/manageMedi">
                                     <TbMedicineSyrup className="text-xl" />Manage medicines
                                 </NavLink>
                             </li>
