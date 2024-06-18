@@ -1,23 +1,25 @@
 import { useQuery } from "@tanstack/react-query";
-import useAxiosPublic from "../../../Hooks/AxiosPublic/useAxiosPublic";
+
 import Swal from "sweetalert2";
 import { FaUsersLine } from "react-icons/fa6";
 import { ImUserPlus } from "react-icons/im";
 import { FaUserSecret } from "react-icons/fa";
+import useAxiosSecure from "../../../Hooks/AxioSecure/useAxiosSecure";
+
 
 
 const AllUser = () => {
-    const AxiosPublic = useAxiosPublic();
+    const AxiosSecure = useAxiosSecure();
     const { data: users = [], refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
-            const res = await AxiosPublic.get('/users');
+            const res = await AxiosSecure.get('/users');
             return res.data;
         }
     })
 // Make user 
     const handleMakeuser = user =>{
-    AxiosPublic.patch(`/users/user/${user._id}`)
+    AxiosSecure.patch(`/users/user/${user._id}`)
       .then(res =>{
           console.log(res.data)
           if(res.data.modifiedCount > 0){
@@ -34,7 +36,7 @@ const AllUser = () => {
   }
 // make seller
 const handleMakeSeller = user =>{
-  AxiosPublic.patch(`/users/seller/${user._id}`)
+  AxiosSecure.patch(`/users/seller/${user._id}`)
     .then(res =>{
         console.log(res.data)
         if(res.data.modifiedCount > 0){
@@ -52,7 +54,7 @@ const handleMakeSeller = user =>{
 
 // make Admin 
 const handleMakeAdmin = user =>{
-  AxiosPublic.patch(`/users/admin/${user._id}`)
+  AxiosSecure.patch(`/users/admin/${user._id}`)
     .then(res =>{
         console.log(res.data)
         if(res.data.modifiedCount > 0){

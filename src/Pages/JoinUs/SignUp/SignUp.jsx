@@ -122,13 +122,13 @@ const onSubmit = async (data) => {
                             <label className="label">
                                 <span className="label-text">Role</span>
                             </label>
-                            <select defaultValue="default" {...register('role', { required: true })}
+                            <select  defaultValue=""   {...register('role', {required: true})}
                                 className="select select-bordered w-full">
-                                <option disabled value="default">Select a category</option>
+                                <option disabled value="">Select a category</option>
                                 <option value="user">user</option>
                                 <option value="seller">seller</option>
-                                
                             </select>
+                            {errors.select && <span  className="text-red-600" > Select Your role </span>}
                         </div>
                     {/* email */}
                             <div className="form-control">

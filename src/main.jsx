@@ -25,6 +25,9 @@ import Dashboard from './Root/Dashboard/Dashboard';
 import AdminHome from './Pages/Dashboard/Admin/AdminHome';
 import AllUser from './Pages/Dashboard/Admin/AllUser';
 import ManageCategory from './Pages/Dashboard/Admin/ManageCategory';
+import AskforAdd from './Pages/Dashboard/Seller/AskforAdd';
+import { HelmetProvider } from 'react-helmet-async';
+import ManageAdd from './Pages/Dashboard/Admin/ManageAdd';
 
 
 const queryClient = new QueryClient();
@@ -76,9 +79,12 @@ const router = createBrowserRouter([
   path: 'dash',
   element:<PriveteRoute>  <Dashboard></Dashboard></PriveteRoute>,
   children: [
-/////  NORMAL USER ROUTE
+///// seller 
 
-
+{
+path : 'askforAdd',
+element:<AskforAdd></AskforAdd>
+},
 
 
 // //////  ADMIN USER ROUTES
@@ -95,8 +101,10 @@ const router = createBrowserRouter([
       path: 'manageCategory',
       element: <ManageCategory> </ManageCategory>
     },
-
-      
+       {
+        path: 'manageBanner',
+        element: <ManageAdd></ManageAdd>
+       }
 
 
 
@@ -111,8 +119,12 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
             <AuthProvider>
             <QueryClientProvider client={queryClient}>
+              <HelmetProvider>
+        
+                   <RouterProvider router={router} />
          
-          <RouterProvider router={router} />
+
+               </HelmetProvider>
          
     
              </QueryClientProvider>
