@@ -29,6 +29,8 @@ import AskforAdd from './Pages/Dashboard/Seller/AskforAdd';
 import { HelmetProvider } from 'react-helmet-async';
 import ManageAdd from './Pages/Dashboard/Admin/ManageAdd';
 import MangeAllMedicine from './Pages/Dashboard/Seller/MangeAllMedicine';
+import Payment from './Pages/Payment/Payment';
+import Invoice from './Pages/Payment/Invoice';
 
 
 const queryClient = new QueryClient();
@@ -68,8 +70,16 @@ const router = createBrowserRouter([
         path: "/cart"
         ,
         element: <PriveteRoute> <Cart></Cart> </PriveteRoute>
-      }
-
+      },
+      {
+        path: "/payment"
+        ,
+        element: <PriveteRoute><Payment></Payment></PriveteRoute>
+      },
+      {
+        path: '/invoice',
+        element:  <Invoice></Invoice>
+    } ,
 
 
     ],

@@ -13,7 +13,7 @@ const useCart = () => {
     const axiospublic = useAxiosPublic();
     const {user} = useContext(AuthContext);
     console.log(user)
-    const { refetch, data: cart = [] } = useQuery({
+    const { refetch, data: cart = [] ,isLoading} = useQuery({
         queryKey: ['cart', user?.email],
         queryFn: async() => {
             const res = await axiospublic.get(`/carts?email=${user.email}`);
@@ -21,7 +21,7 @@ const useCart = () => {
         }
     })
 
-    return [cart, refetch]
+    return [cart, refetch , isLoading]
 };
 
 export default useCart;

@@ -26,7 +26,7 @@ const HomeGround = () => {
 console.log(category)
 
     return (
-        <div className=" my-10      " >
+        <div className=" my-10    space-y-10  " >
              
              <Slider> </Slider>
 

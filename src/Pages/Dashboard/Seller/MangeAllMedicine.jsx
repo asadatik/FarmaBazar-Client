@@ -40,7 +40,7 @@ console.log(user.email)
             price: parseFloat(data.price),
             company: data.company,
             genericName: data.genericName,
-            medicineName: data.name,
+            name: data.name,
             category: data.select,
             quantity:data.quantity
         }
@@ -65,8 +65,10 @@ console.log(user.email)
     }
 
     const { data: allMedicine = [], refetch } = useQuery({
-        queryKey: ['allMedicine'],
-        queryFn: () => axiosSecure.get(`/allMedicine/${user?.email}`).then(res => res.data)
+        queryKey: ['allMedicine', user?.email],
+        queryFn: async () => {
+            const res = await  axiosSecure.get(`/allMedicines/${user?.email}`);
+            return res.data;} 
     });
 
 
@@ -89,9 +91,9 @@ console.log(user.email)
                     <form noValidate="" action="" className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
                         <div className='flex items-center gap-4'>
                             <div className="space-y-1 text-sm w-full">
-                                <label htmlFor="medicineName" className="block text-black">Name</label>
-                                <input type="text" name="name" id="name" placeholder="Name" className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600" {...register('medicineName', { required: true })} />
-                                {errors.medicineName && <span>{errors.medicineName.message}</span>}
+                                <label htmlFor="name" className="block text-black">Name</label>
+                                <input type="text" name="name" id="name" placeholder="Name" className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600" {...register('name', { required: true })} />
+                                {errors.name && <span>{errors.name.message}</span>}
                             </div>
                             <div className="space-y-1 text-sm w-full">
                                 <label htmlFor="genericName" className="block text-black">Generic Name</label>

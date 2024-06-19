@@ -18,6 +18,13 @@ const Slider = () => {
             return res.data;
         }
     });
+
+   
+    const minSlidesForLoop = 3; 
+
+
+    const enableLoop = sliders.length >= minSlidesForLoop;
+      
     console.log(sliders);
     return (
 
@@ -27,7 +34,7 @@ const Slider = () => {
             spaceBetween={30}
 
             centeredSlides={true}
-            loop={true}
+            loop={enableLoop}
             autoplay={{
                 delay: 2000,
                 disableOnInteraction: false,
@@ -43,9 +50,9 @@ const Slider = () => {
         >
 
 
-           { sliders?.map( s =>  <SwiperSlide  key={s._id}   >
-                      <img className="w-full h-[700px]" src={s.medicineImage} alt="" />
-                    </SwiperSlide>
+           { sliders?.map( s =>  ( <SwiperSlide  key={s._id}   >
+                                      <img className="w-full h-[700px]" src={s.medicineImage} alt="" />
+                          </SwiperSlide> )
              )
             
            }

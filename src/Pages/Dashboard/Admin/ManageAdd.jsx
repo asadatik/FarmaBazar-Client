@@ -90,69 +90,7 @@ const ManageAdd = () => {
         }
     };
 
-    // const axoisSecure = useAxiosSecure();
-    // const { data: advertisements = [], refetch } = useQuery({
-    //     queryKey: ['advertisement'],
-    //     queryFn: async () => axoisSecure.get('/advert').then(res => res.data)
-    // });
-
-    // console.log(advertisements);
-
-    // const handleReject = (id) => {
-    //     const status = {
-    //         status: 'Rejected'
-    //     }
-    //     axoisSecure.patch(`/advert/${id}`, status)
-    //         .then(res => {
-    //             if (res.data.modifiedCount > 0) {
-    //                 refetch()
-    //                 axoisSecure.delete(`/sliders/${id}`)
-    //                     .then(res => {
-    //                         console.log(res);
-    //                         if (res.data.deletedCount > 0) {
-    //                             Swal.fire({
-    //                                 position: "top-end",
-    //                                 icon: "success",
-    //                                 title: "Rejected successfully.",
-    //                                 showConfirmButton: false,
-    //                                 timer: 1500
-    //                             });
-    //                         }
-    //                     })
-    //             }
-    //         })
-    // }
-
-    // const HandleDataAdd = (i) => {
-    //     const status = {
-    //         status: 'Running'
-    //     }
-    //     const sliderData = {
-    //         id: i._id,
-    //         medicineName: i.medicineName,
-    //         medicineImage: i.image,
-    //         description: i.description
-    //     }
-    //     axoisSecure.patch(`/advert/${i._id}`, status)
-    //         .then(res => {
-    //             if (res.data.modifiedCount > 0) {
-    //                 refetch()
-    //                 axoisSecure.post('/slider', sliderData)
-    //                     .then(res => {
-    //                         if (res.data.insertedId) {
-    //                             Swal.fire({
-    //                                 position: "center",
-    //                                 icon: "success",
-    //                                 title: " slider Added ",
-    //                                 showConfirmButton: false,
-    //                                 timer: 1500
-    //                             });
-    //                         }
-    //                     })
-
-    //             }
-    //         })
-    // }
+   
 
     return (
         <div>

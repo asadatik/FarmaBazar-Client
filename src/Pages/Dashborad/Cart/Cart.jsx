@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 const Cart = () => {
     const [cart, refetch] = useCart();
     const totalPrice = cart.reduce((total, item) => total + item.price, 0);
-    const axiosSecure = useAxiosPublic();
+    const axiosPublic = useAxiosPublic();
 
 
 
@@ -30,7 +30,7 @@ const Cart = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                axiosSecure.delete(`/carts/${id}`)
+                axiosPublic.delete(`/cart/${id}`)
                     .then(res => {
                         if (res.data.deletedCount > 0) {
                             refetch();
@@ -58,7 +58,7 @@ const Cart = () => {
              <div className=" md:flex justify-evenly ">
                 <h2 className="md:text-2xl font-bold font-nothing  ">Items: {cart.length}</h2>
                 <h2 className="md:text-2xl font-bold font-nothing ">Total Price: {totalPrice}</h2>
-              <Link  to='/dashboard/payment'  >  <button  disabled={!cart.length}   className="btn btn-sm  text-white text-xl bg-amber-600  hover:bg-yellow-500   hover:text-slate-800 "> checkout</button></Link>
+              <Link  to='/payment'  >  <button  disabled={!cart.length}   className="btn btn-sm  text-white text-xl bg-amber-600  hover:bg-yellow-500   hover:text-slate-800 "> checkout</button></Link>
 
             </div>
         </div>

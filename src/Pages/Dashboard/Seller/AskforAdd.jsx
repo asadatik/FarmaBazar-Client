@@ -53,8 +53,13 @@ const AskforAdd = () => {
     };
 
     const { data: advertisement = [], refetch } = useQuery({
-        queryKey: ['advertisement'],
-        queryFn: async () => axoisSecure.get(`/advertisement?email=${user.email}`).then(res => res.data)
+        queryKey: ['advertisement' , user?.email],
+        queryFn: async () => 
+          {
+            const res = await     axoisSecure.get(`/advertisement?email=${user.email}`);
+            return res.data ;
+          
+          }
     })
 
     console.log(advertisement);
