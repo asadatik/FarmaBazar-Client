@@ -31,6 +31,7 @@ import ManageAdd from './Pages/Dashboard/Admin/ManageAdd';
 import MangeAllMedicine from './Pages/Dashboard/Seller/MangeAllMedicine';
 import Payment from './Pages/Payment/Payment';
 import Invoice from './Pages/Payment/Invoice';
+import ManagePaymet from './Pages/Dashboard/Admin/ManagePaymet';
 
 
 const queryClient = new QueryClient();
@@ -78,7 +79,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/invoice',
-        element:  <Invoice></Invoice>
+        element:    <PriveteRoute> <Invoice></Invoice> </PriveteRoute>
     } ,
 
 
@@ -91,7 +92,12 @@ const router = createBrowserRouter([
     element: <PriveteRoute>  <Dashboard></Dashboard></PriveteRoute>,
     children: [
       ///// seller 
+       {
+         path : 'sellerHome',
 
+
+
+       },
       {
         path: 'askforAdd',
         element: <AskforAdd></AskforAdd>
@@ -122,7 +128,20 @@ const router = createBrowserRouter([
       {
         path: 'manageBanner',
         element: <ManageAdd></ManageAdd>
+      },
+      {
+        path: 'payManage',
+        element: <ManagePaymet></ManagePaymet>
       }
+
+
+      ,
+      // USER DASH
+      {
+        path: 'userHome',
+        element: <AdminHome></AdminHome>
+      },
+
 
 
 

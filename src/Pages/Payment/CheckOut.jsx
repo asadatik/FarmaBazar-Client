@@ -8,7 +8,6 @@ import { Helmet } from "react-helmet-async";
 import { AuthContext } from "../../Provider/AuthProvider";
 import useCart from "../../Hook/useCart/useCart";
 import useAxiosSecure from "../../Hooks/AxioSecure/useAxiosSecure";
-import { MdOutlineError } from "react-icons/md";
 
 
 const CheckOut = () => {

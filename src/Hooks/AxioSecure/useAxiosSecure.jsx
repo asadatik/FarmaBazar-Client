@@ -26,7 +26,7 @@ const useAxiosSecure = () => {
       
         if (status === 401 || status === 403) {
             await LogOut();
-            navigate('/login');
+            navigate('/joinUs');
         }
         return Promise.reject(error);
     })

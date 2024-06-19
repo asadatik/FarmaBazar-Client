@@ -102,11 +102,8 @@ const ManageAdd = () => {
 
                 <section className='container p-6  my-10 bg-base-300   mx-auto pt-10'>
                     <div className='text-center'>
+                    <h1 className="lg:text-3xl font-bold  uppercase  lg:tracking-[.25em]  text-center md:w-2/4  border-y-4  border-cyan-700  p-2 font-cinzel   mx-auto    " > Advertise  Management </h1>
 
-                        <div className=" md:flex justify-evenly ">
-
-
-                        </div>
                     </div>
 
                     <div className='flex flex-col mt-6'>

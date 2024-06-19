@@ -5,7 +5,6 @@ import useCart from "../../Hook/useCart/useCart";
 import { useQuery } from "@tanstack/react-query";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
-import AdminHome from "../../Pages/Dashboard/Admin/AdminHome";
 import useAxiosSecure from "../../Hooks/AxioSecure/useAxiosSecure";
 import { TbMedicineSyrup } from "react-icons/tb";
 import { MdPayment } from "react-icons/md";
@@ -61,7 +60,12 @@ const Dashboard = () => {
                     {/* admin  */}
                     {userRole === 'admin' &&
                         <>
-
+                          
+                          <li>
+                                <NavLink to="/dash/adminHome">
+                                  
+                                    Admin Home</NavLink>
+                            </li>
 
                             <li>
                                 <NavLink to="/dash/users">
@@ -75,9 +79,9 @@ const Dashboard = () => {
                                     Manage Category</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/dash/bookings">
+                                <NavLink to="/dash/payManage">
                                     <FaBook></FaBook>
-                                    Manage Bookings</NavLink>
+                                    Manage Payment</NavLink>
                             </li>
                             <li>
                                 <NavLink to="/dash/manageBanner">
@@ -91,6 +95,11 @@ const Dashboard = () => {
                     {/*seller */}
                     {userRole === 'seller' &&
                         <>
+                         <li>
+                                <NavLink to="/dash/sellerHome">
+                          Seller Home
+                                </NavLink>
+                            </li>
 
                             <li>
                                 <NavLink to="/dash/manageMedi">
@@ -115,7 +124,7 @@ const Dashboard = () => {
                         <>
                             <li>
                                 <NavLink to="/dash/userHome">
-                                    <FaHome></FaHome>
+                                    
                                     User Home</NavLink>
                             </li>
                             <li>
@@ -142,27 +151,20 @@ const Dashboard = () => {
 
                     }
 
-                    <div className="divider"></div>
+                    <div className="  "></div>
                     <li>
                         <NavLink to="/">
                             <FaHome></FaHome>
-                            Home</NavLink>
+                            Home Page </NavLink>
                     </li>
 
                 </ul>
             </div>
             {/* ////////////////////////////////////////////// */}
             <div className="flex-1  p-8">
-                {userRole === 'admin' &&
-                    <>  <AdminHome></AdminHome>  </>}
+               
 
-                {
-                    userRole === 'seller' && <>  <p className=" " > Seller Home  </p>   </>
-                }
-                {
-                    userRole === 'user' && <>  <p className=" " > user Home  </p>   </>
-                }
-
+          
 
 
                 <div className="my-10" >  <Outlet></Outlet>  </div>
