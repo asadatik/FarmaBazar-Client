@@ -16,9 +16,10 @@ const useCart = () => {
     const { refetch, data: cart = [] ,isLoading} = useQuery({
         queryKey: ['cart', user?.email],
         queryFn: async() => {
-            const res = await axiospublic.get(`/carts?email=${user?.email}`);
+            const res = await axiospublic.get(`/carts?email=${user.email}`);
             return res.data;
-        }
+        },
+        enabled: !!user?.email,
     })
 
     return [cart, refetch , isLoading]

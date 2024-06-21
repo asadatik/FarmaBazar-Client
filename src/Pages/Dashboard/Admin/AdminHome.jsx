@@ -18,8 +18,11 @@ const AdminHome = () => {
             return res.data;
         }
     })
+
     const TotalPaid = AllPay.filter(i => i.status === 'Paid').reduce((sum, i) => sum + i.price, 0);
     const PayPanding = AllPay.filter(i => i.status === 'Pending').reduce((sum, i) => sum + i.price, 0);
+
+    
     return (
         <div>
             <Helmet>
@@ -37,8 +40,8 @@ const AdminHome = () => {
 
                 <h2 className='text-center text-3xl font-bold my-5 bg-amber-500 text-black md:w-1/4 mx-auto'> Sales Revenue</h2>
                 <div className='flex font-nothing justify-evenly '>
-                    <p className='text-2xl'>Paid Total: $ <span className=' px-2 py-1 md:text-xl text-center font-extrabold text-white uppercase transition-colors duration-300 transform bg-gradient-to-r from-cyan-500 to-blue-500 rounded   '    >{TotalPaid}</span> </p>
-                    <p className='text-2xl'>Pending Total: $  <span  className=' px-2 py-1 md:text-xl text-center font-extrabold text-white uppercase transition-colors duration-300 transform bg-gradient-to-r from-cyan-500 to-blue-500 rounded   '   > {PayPanding}</span>  </p>
+                    <p className='text-2xl'>Paid Total:  <span className=' px-2 py-1 md:text-xl text-center font-extrabold text-white uppercase transition-colors duration-300 transform bg-gradient-to-r from-cyan-500 to-blue-500 rounded   '    > $ {TotalPaid}</span> </p>
+                    <p className='text-2xl'>Pending Total:  <span  className=' px-2 py-1 md:text-xl text-center font-extrabold text-white uppercase transition-colors duration-300 transform bg-gradient-to-r from-cyan-500 to-blue-500 rounded   '   >$  {PayPanding}</span>  </p>
                 </div>
             </div>
         </div>

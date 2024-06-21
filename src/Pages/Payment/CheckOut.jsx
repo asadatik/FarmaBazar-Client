@@ -23,9 +23,9 @@ const CheckOut = () => {
     const [clientSecret, setClientSecret] = useState('');
     const [transactionId, setTransactionId] = useState('');
     const [carts, refetch, isLoading] = useCart();
-    console.log(carts);
+    console.log('Sellected carts',carts);
     const totalPrice = carts.reduce((total, i) => total + i.price, 0);
-
+ 
     useEffect(() => {
         if (totalPrice > 0) {
             axiosSecure.post('/createPayment', { price: totalPrice })

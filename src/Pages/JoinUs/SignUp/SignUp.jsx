@@ -5,10 +5,7 @@ import Swal from 'sweetalert2'
 import { useContext} from "react";
 
 
-// import { MdOutlineError } from "react-icons/md";
 
-// import { FaEye } from "react-icons/fa";
-// import { FaEyeSlash } from "react-icons/fa";
 
 import { ToastContainer, } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -91,9 +88,7 @@ const onSubmit = async (data) => {
               <div  className=" my-10  lg:flex  " >
 
 
-              <div className="   md:mt-10 "     >
-                   <img src="https://i.ibb.co/hYd59np/sign-up-concept-illustration-114360-7895-1.jpg" alt="" className="rounded-l-xl" />    
-              </div>
+         
                <div className="mx-auto rounded-r-xl  px-2 py-2  lg:w-[700px]  md:px-8 mt-8  bg-base-200  ">
        <h1 className="lg:text-4xl font-bold text-center  border-b-4 border-y-indigo-600 pb-1 "  >  Create A  Account</h1> 
            

@@ -3,13 +3,12 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import useCart from "../../Hook/useCart/useCart";
 import { TiShoppingCart } from "react-icons/ti";
-import { useQuery } from "@tanstack/react-query";
-import useAxiosSecure from "../../Hooks/AxioSecure/useAxiosSecure";
+import logo from '../../../public/pexels-padrinan-806427.jpg'
+
 
 const Navbar = () => {
   const { user, LogOut } = useContext(AuthContext)
   const [theme, setTheme] = useState('light')
-const axiosSecure = useAxiosSecure()
   const [cart] = useCart();
   console.log(cart);
 
@@ -26,23 +25,25 @@ const axiosSecure = useAxiosSecure()
     else { setTheme('light') }
   }
 
-     // Fetch user data using react-query
-     const { data: userDetails = {}, isLoading: userLoading } = useQuery({
-      queryKey: ['userDetails'],
-      queryFn: async () => {
-          const response = await axiosSecure.get(`/user/${user.email}`);
-          return response.data;
-      }
-  });
+  //    // Fetch user data using react-query
+  //    const { data: userDetails = {}, isLoading: userLoading } = useQuery({
+  //     queryKey: ['userDetails'],
+  //     queryFn: async () => {
+  //         const response = await axiosSecure.get(`/user/${user.email}`);
+  //         return response.data;
+  //     },
+   
+
+  // });
 
 
-    // Loading indicator for user data fetch
-    if (userLoading) {
-      return <div className="flex justify-center items-center my-20">
-        <span className="loading loading-dots loading-md"></span>
-        <span className="loading loading-dots loading-lg"></span>
-      </div>;
-  }
+  //   // Loading indicator for user data fetch
+  //   if (userLoading) {
+  //     return <div className="flex justify-center items-center my-20">
+  //       <span className="loading loading-dots loading-md"></span>
+  //       <span className="loading loading-dots loading-lg"></span>
+  //     </div>;
+  // }
 
 
 
@@ -79,8 +80,9 @@ const axiosSecure = useAxiosSecure()
 
             </ul>
           </div>
-          <div>
-            <a className="  lg:text-3xl font-extrabold font-cinzel uppercase text-indigo-300  ">farma<span className="text-pink-400" >bazar</span> </a>
+          <div  className="flex gap-2" >
+              <img className="h-10 w-12 rounded-full " src={logo} alt="ParmaBazar Logo" />
+            <a className="  lg:text-3xl font-extrabold font-cinzel uppercase text-amber-200 ">farma<span className="text-pink-400" >bazar</span> </a>
           </div>
         </div>
         <div className="navbar-center  hidden lg:flex">
@@ -147,16 +149,19 @@ const axiosSecure = useAxiosSecure()
                   <h1>  Update Profile  </h1>
                 </li>
                
-                {
+                {/* {
                   userDetails?.role==='admin' &&   <li><Link to="/dash/adminHome">Dashboard</Link></li>
                 }
                 {
                   userDetails?.role==='seller' && <li><Link to="/dash/SellerHome">Dashboard</Link></li> 
                 }
                 {
-                  userDetails?.role==='user' && <li><Link to="/dash/userHome">Dashboard</Link></li> 
+                  userDetails?.role==='user' && 
                     
-                }
+                } */}
+                <li><Link to="/dash">Dashboard</Link></li> 
+                 
+
 
                 <li className="">
                   <Link onClick={LogOut} className="  p-1 bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white  flex justify-center  "  >Log Out</Link>

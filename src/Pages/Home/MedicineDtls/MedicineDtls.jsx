@@ -53,8 +53,9 @@ const MedicineDtls = () => {
         company: Id.company,
         quantity: Id.quantity,
         price: Id.price,
-        image: Id.image
-
+        image: Id.image,
+        sellerEmail : Id.sellerEmail ? Id.sellerEmail : 'no found' 
+          
       }
       console.log(cartItem)
       axios.post(`${import.meta.env.VITE_API_URL}/carts`, cartItem)

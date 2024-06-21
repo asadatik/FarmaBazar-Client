@@ -1,9 +1,8 @@
-import { FaAd, FaBook, FaCalendar, FaHome, FaList, FaShoppingCart, FaUsers, } from "react-icons/fa";
-import { NavLink, Outlet } from "react-router-dom";
-import useCart from "../../Hook/useCart/useCart";
+import {  FaBook,  FaHome, FaList,  FaUsers, } from "react-icons/fa";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 
 import { useQuery } from "@tanstack/react-query";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import useAxiosSecure from "../../Hooks/AxioSecure/useAxiosSecure";
 import { TbMedicineSyrup } from "react-icons/tb";
@@ -15,41 +14,54 @@ import { PiFlagBannerFoldBold } from "react-icons/pi";
 
 
 const Dashboard = () => {
-    const [cart] = useCart();
+   
     const { user } = useContext(AuthContext);
-    console.log(user.email);
+  const navigate = useNavigate();
+  const axiosSecure = useAxiosSecure();
 
-
-
-    const AxiosSecure = useAxiosSecure();
-    const { data: users = [], isLoading, error } = useQuery({
-        queryKey: ['users'],
-        queryFn: async () => {
-            const res = await AxiosSecure.get('/users');
-            return res.data;
-        }
-    })
-
-    if (isLoading) {
-        return <div className="text-center  mt-10 text-xl font-cinzel " >Loading users data
-
-            <span>
-                <span className="loading loading-dots loading-md"></span>
-                <span className="loading loading-dots loading-lg"></span>
-            </span>
-
-        </div>;
+ const { data: users = [], isLoading, error } = useQuery({
+    queryKey: ['users'],
+    queryFn: async () => {
+      const res = await axiosSecure.get('/users');
+      return res.data;
     }
+  });
 
-    if (error) {
-        return <div className="text-center  mt-10 text-xl font-cinzel " >Error loading users data: {error.message}</div>;
+  useEffect(() => {
+    if (!isLoading && !error) {
+      const currentUser = users.find(u => u.email === user?.email);
+      const userRole = currentUser?.role;
+
+      if (userRole === 'admin') {
+        navigate('/dash/adminHome');
+      } else if (userRole === 'seller') {
+        navigate('/dash/sellerHome');
+      } else if (userRole === 'user') {
+        navigate('/dash/userHome');
+      }
     }
+  }, [isLoading, error, users, user?.email, navigate]);
 
+  if (isLoading) {
+    return (
+      <div className="text-center mt-10 text-2xl font-nothing">
+        Loading data. Please wait...
+        <span className="loading loading-dots loading-md"></span>
+        <span className="loading loading-dots loading-lg"></span>
+      </div>
+    );
+  }
 
+  if (error) {
+    return (
+      <div className="text-center mt-10 text-xl font-cinzel">
+        Error loading users data: {error.message}
+      </div>
+    );
+  }
 
-    const CurrentUser = users.find(u => u.email === user?.email)
-    console.log(CurrentUser)
-    const userRole = CurrentUser?.role;
+  const currentUser = users.find(u => u.email === user?.email);
+  const userRole = currentUser?.role;
 
 
     return (
@@ -84,6 +96,12 @@ const Dashboard = () => {
                                     Manage Payment</NavLink>
                             </li>
                             <li>
+                                <NavLink to="/dash/salesRep">
+                                    <FaBook></FaBook>
+                                    Sales Report</NavLink>
+                            </li>
+
+                            <li>
                                 <NavLink to="/dash/manageBanner">
                                     <PiFlagBannerFoldBold className="text-2xl" />Manage Banner Advertisements
                                 </NavLink>
@@ -95,7 +113,7 @@ const Dashboard = () => {
                     {/*seller */}
                     {userRole === 'seller' &&
                         <>
-                         <li>
+                            <li>
                                 <NavLink to="/dash/sellerHome">
                           Seller Home
                                 </NavLink>
@@ -107,7 +125,7 @@ const Dashboard = () => {
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to="/dash/seller-payment-history">
+                                <NavLink to="/dash/payHistory">
                                     <MdPayment className="text-xl" />Payment history
                                 </NavLink>
                             </li>
@@ -127,31 +145,12 @@ const Dashboard = () => {
                                     
                                     User Home</NavLink>
                             </li>
-                            <li>
-                                <NavLink to="/dash/payment">
-                                    <FaCalendar></FaCalendar>
-                                    Reservation</NavLink>
-                            </li>
-                            <li>
-                                <NavLink to="/dash/cart">
-                                    <FaShoppingCart></FaShoppingCart>
-                                    My Cart ({cart.length})</NavLink>
-                            </li>
-                            <li>
-                                <NavLink to="/dash/review">
-                                    <FaAd></FaAd>
-                                    Add a Review</NavLink>
-                            </li>
-                            <li>-
-                                <NavLink to="/dash/bookings">
-                                    <FaList></FaList>
-                                    My Bookings</NavLink>
-                            </li>
+                          
                         </>
 
                     }
 
-                    <div className="  "></div>
+                    <div className=" divider  "></div>
                     <li>
                         <NavLink to="/">
                             <FaHome></FaHome>

@@ -32,6 +32,11 @@ import MangeAllMedicine from './Pages/Dashboard/Seller/MangeAllMedicine';
 import Payment from './Pages/Payment/Payment';
 import Invoice from './Pages/Payment/Invoice';
 import ManagePaymet from './Pages/Dashboard/Admin/ManagePaymet';
+import SellerHome from './Pages/Dashboard/Seller/SellerHome';
+import PaymentHistory from './Pages/Dashboard/User/PaymentHistory';
+import SellerPayHistory from './Pages/Dashboard/Seller/SellerPayHistory';
+import SellesRepo from './Pages/Dashboard/Admin/SellesRepo';
+import AdminRoute from './Root/AdminRoute/AdminRoute';
 
 
 const queryClient = new QueryClient();
@@ -91,10 +96,10 @@ const router = createBrowserRouter([
     path: 'dash',
     element: <PriveteRoute>  <Dashboard></Dashboard></PriveteRoute>,
     children: [
-      ///// seller 
+   ///// seller 
        {
          path : 'sellerHome',
-
+        element : <SellerHome></SellerHome>
 
 
        },
@@ -107,39 +112,46 @@ const router = createBrowserRouter([
         element:<MangeAllMedicine></MangeAllMedicine>
       }
        ,
-
-
+           
+       {
+        path: 'payHistory',
+        element: <SellerPayHistory></SellerPayHistory>
+      }
+       ,
 
        
-      // //////  ADMIN USER ROUTES
+ // //////  ADMIN USER ROUTES
       {
         path: 'adminHome',
-        element: <AdminHome></AdminHome>
+        element: <AdminRoute>  <AdminHome></AdminHome> </AdminRoute> 
       },
 
       {
         path: 'users',
-        element: <AllUser></AllUser>
+        element:   <AdminRoute> <AllUser></AllUser> </AdminRoute>   
       },
       {
         path: 'manageCategory',
-        element: <ManageCategory> </ManageCategory>
+        element:<AdminRoute> <ManageCategory> </ManageCategory> </AdminRoute> 
       },
       {
         path: 'manageBanner',
-        element: <ManageAdd></ManageAdd>
+        element: <AdminRoute>  <ManageAdd></ManageAdd> </AdminRoute>
       },
       {
         path: 'payManage',
-        element: <ManagePaymet></ManagePaymet>
+        element: <AdminRoute> <ManagePaymet></ManagePaymet>  </AdminRoute>
+      },
+      {
+        path: 'salesRep',
+        element: <AdminRoute> <SellesRepo></SellesRepo> </AdminRoute> 
       }
 
-
       ,
-      // USER DASH
+  // USER DASH
       {
         path: 'userHome',
-        element: <AdminHome></AdminHome>
+        element: <PaymentHistory></PaymentHistory>
       },
 
 
