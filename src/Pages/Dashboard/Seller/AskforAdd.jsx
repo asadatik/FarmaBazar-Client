@@ -93,7 +93,7 @@ const AskforAdd = () => {
                             </div>
 
                             <div className="space-y-1 text-sm">
-                                <input type="file" className="file-input w-full text-black" {...register('image', { required: true })} />
+                                <input type="file" className="file-input w-full " {...register('image', { required: true })} />
                                 {errors.image && <span>{errors.image.message}</span>}
                             </div>
                             <div>
@@ -118,7 +118,7 @@ const AskforAdd = () => {
             <section className='container p-4  my-10 bg-base-300   mx-auto pt-12'>
             <div className='text-center'>
           <h2 className='text-2xl font-bold  font-nothing     '> 
-          Total Medicine  : <span className=' px-2 py-1 md:text-xl text-center font-extrabold text-white uppercase transition-colors duration-300 transform bg-gradient-to-r from-cyan-500 to-blue-500 rounded   '  > {advertisement.length} </span></h2>
+          Total Advertise  : <span className=' px-2 py-1 md:text-xl text-center font-extrabold text-white uppercase transition-colors duration-300 transform bg-gradient-to-r from-cyan-500 to-blue-500 rounded   '  > {advertisement.length} </span></h2>
   
         </div>
   
@@ -169,6 +169,7 @@ const AskforAdd = () => {
                   <tbody>
                 
                  {
+                  advertisement.length > 0 ? (
                   advertisement?.map((i,index)  => (    
                          <tr   key={i._id} className={`font-medium  text-black font-inter text-xl  ${index % 2 === 0 ? 'bg-gray-400' : 'bg-white'}`}  >
                 <td className='pl-3 text-lg font-bold  '>
@@ -182,7 +183,13 @@ const AskforAdd = () => {
                                     
                          </tr>
                           
-                   ))
+                   )) ) 
+                   :
+                   <tr>
+                   <td className="py-4 text-xl font-bold  px-6 text-center text-rose-600" colSpan="4">
+                       No Added Advertise
+                   </td>
+                  </tr>
                    
                  }
                 

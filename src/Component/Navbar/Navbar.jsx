@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import useCart from "../../Hook/useCart/useCart";
 import { TiShoppingCart } from "react-icons/ti";
-import logo from '../../../public/pexels-padrinan-806427.jpg'
+import logo from '../../../public/pexels-cottonbro-5722883.jpg'
 
 
 const Navbar = () => {
@@ -25,26 +25,7 @@ const Navbar = () => {
     else { setTheme('light') }
   }
 
-  //    // Fetch user data using react-query
-  //    const { data: userDetails = {}, isLoading: userLoading } = useQuery({
-  //     queryKey: ['userDetails'],
-  //     queryFn: async () => {
-  //         const response = await axiosSecure.get(`/user/${user.email}`);
-  //         return response.data;
-  //     },
-   
-
-  // });
-
-
-  //   // Loading indicator for user data fetch
-  //   if (userLoading) {
-  //     return <div className="flex justify-center items-center my-20">
-  //       <span className="loading loading-dots loading-md"></span>
-  //       <span className="loading loading-dots loading-lg"></span>
-  //     </div>;
-  // }
-
+ 
 
 
   return (
@@ -55,12 +36,11 @@ const Navbar = () => {
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5  text-white w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
             </div>
-            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-black rounded-box w-52">
+            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3  p-2 shadow bg-black z-50 rounded-box w-36">
               <a className="text-base  text-white " >  <NavLink to="/">  Home </NavLink></a>
               <a className="text-base  text-white " >  <NavLink to='/shop' > Shop </NavLink></a>
               <a className="text-base text-white  " >  <NavLink to="/cart">
                 <button className="btn bg-violet-100 btn-sm ">
-                  {/* <TiShoppingCart  className="mr-2 text-black text-xl  "><TiShoppingCart /> */}
                   <TiShoppingCart className=" text-black text-xl  " />
                   <div className="badge  badge-secondary">+{cart.length} </div>
                 </button>
@@ -68,9 +48,9 @@ const Navbar = () => {
               </a>
               <a >  <div className="dropdown dropdown-bottom">
                 <div tabIndex={0} role="button" className="text-base text-white ">languages</div>
-                <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-black rounded-box w-52">
+                <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow  bg-gray-600 rounded-box w-24">
                   <li>
-                    <h1>  English  </h1>
+                    <h1  >  English  </h1>
                   </li>
                   <li>
                     <h1>  Bangla    </h1>
@@ -149,16 +129,7 @@ const Navbar = () => {
                   <h1>  Update Profile  </h1>
                 </li>
                
-                {/* {
-                  userDetails?.role==='admin' &&   <li><Link to="/dash/adminHome">Dashboard</Link></li>
-                }
-                {
-                  userDetails?.role==='seller' && <li><Link to="/dash/SellerHome">Dashboard</Link></li> 
-                }
-                {
-                  userDetails?.role==='user' && 
-                    
-                } */}
+    
                 <li><Link to="/dash">Dashboard</Link></li> 
                  
 

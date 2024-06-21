@@ -35,7 +35,10 @@ const SellerPayHistory = () => {
                     </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200">
-                    {payment.map((pay, index) => (
+
+                    {
+                    payment.length > 0 ? (
+                    payment.map((pay, index) => (
                         <tr key={index} className="hover:bg-gray-100 transition-colors">
                             <td className="px-3 py-4 border-b border-gray-200 bg-white text-xs font-medium text-gray-700 rounded-l-lg">{index + 1}.</td>
                             <td className="px-5 py-4 border-b border-gray-200 bg-white text-sm text-gray-700">{pay.transactionId}</td>
@@ -49,7 +52,18 @@ const SellerPayHistory = () => {
                                 </span>
                             </td>
                         </tr>
-                    ))}
+                    ))
+                 )   
+                  :   <tr>
+                  <td className="py-4 text-xl font-bold  px-6 text-center text-rose-600" colSpan="4">
+                      No payment history available
+                  </td>
+                 </tr>
+                    
+                    
+                    }
+
+
                 </tbody>
             </table>
         </div>

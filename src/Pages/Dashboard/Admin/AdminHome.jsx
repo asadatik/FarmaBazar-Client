@@ -38,10 +38,10 @@ const AdminHome = () => {
                 </header>
 
 
-                <h2 className='text-center text-3xl font-bold my-5 bg-amber-500 text-black md:w-1/4 mx-auto'> Sales Revenue</h2>
-                <div className='flex font-nothing justify-evenly '>
-                    <p className='text-2xl'>Paid Total:  <span className=' px-2 py-1 md:text-xl text-center font-extrabold text-white uppercase transition-colors duration-300 transform bg-gradient-to-r from-cyan-500 to-blue-500 rounded   '    > $ {TotalPaid}</span> </p>
-                    <p className='text-2xl'>Pending Total:  <span  className=' px-2 py-1 md:text-xl text-center font-extrabold text-white uppercase transition-colors duration-300 transform bg-gradient-to-r from-cyan-500 to-blue-500 rounded   '   >$  {PayPanding}</span>  </p>
+                <h2 className='text-center md:text-3xl font-bold my-5 bg-amber-500 text-black md:w-1/4 mx-auto'> Sales Revenue</h2>
+                <div className='md:flex space-y-4 md:space-y-0 font-nothing justify-evenly '>
+                    <p className='md:text-2xl '>Paid Total:  <span className=' md:px-2 py-1 md:text-xl text-center font-extrabold text-white uppercase transition-colors duration-300 transform bg-gradient-to-r from-cyan-500 to-blue-500 rounded   '    > $ {TotalPaid}</span> </p>
+                    <p className='md:text-2xl '>Pending Total:  <span  className=' md:px-2 py-1 md:text-xl text-center font-extrabold text-white uppercase transition-colors duration-300 transform bg-gradient-to-r from-cyan-500 to-blue-500 rounded   '   >$  {PayPanding}</span>  </p>
                 </div>
             </div>
         </div>

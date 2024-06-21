@@ -1,10 +1,10 @@
-# MediZone
+# FarmaBazar
 
-Welcome to MediZone! This is a full-featured web application for purchasing medications and healthcare products online. MediZone provides a seamless user experience, secure transactions, and comprehensive dashboards for administrators and sellers.
+Welcome to FarmaBazar! This is a full-featured web application for purchasing medications and healthcare products online. FarmaBazar provides a seamless user experience, secure transactions, and comprehensive dashboards for administrators and sellers.
 
 ## Live Site URL
 
-Visit our live site: [MediZone](https://medizone-d0736.web.app/)
+Visit our live site: [FarmaBazar](https://medicine-selling.web.app/)
 
 
 * 2. Admin email: admin1@mail.com
@@ -15,7 +15,7 @@ Visit our live site: [MediZone](https://medizone-d0736.web.app/)
 
 ## Features
 
-MediZone comes with a robust set of features designed to enhance user experience and streamline the process of managing an online healthcare store:
+FarmaBazar comes with a robust set of features designed to enhance user experience and streamline the process of managing an online healthcare store:
 
 1. **Seamless User Experience**
    - Intuitive user interface for easy navigation and shopping.

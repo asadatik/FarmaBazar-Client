@@ -133,7 +133,7 @@ const ManagePayment = () => {
 
                                                 
                                                          <td>
-                                                            {i.status == 'Pending' ? <button onClick={() => HandlePaid(i._id)} className="btn my-1 btn-sm btn-secondary text-black text-lg"> accept payment</button> : ''}</td>
+                                                            {i.status == 'Pending' ? <button onClick={() => HandlePaid(i._id)} className="btn my-1 btn-sm btn-secondary text-white text-lg"> accept payment</button> : ''}</td>
                                                     
                                                     </tr>
 

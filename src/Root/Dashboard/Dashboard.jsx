@@ -66,10 +66,10 @@ const Dashboard = () => {
 
     return (
         <div className="flex">
-            {/* dashboard side bar */}
-            <div className="md:w-72 min-h-screen bg-[#48bee6]">
-                <ul className="menu text-[#333333] text-lg font-inter font-medium md:p-4">
-                    {/* admin  */}
+         {/* dashboard side bar */}
+            <div className="md:w-72  min-h-screen bg-[#48bee6]">
+                <ul className="menu text-[#333333] md:text-lg font-inter md:font-medium md:p-4">
+               {/* admin  */}
                     {userRole === 'admin' &&
                         <>
                           
@@ -110,7 +110,7 @@ const Dashboard = () => {
 
                         </>
                     }
-                    {/*seller */}
+              {/*seller */}
                     {userRole === 'seller' &&
                         <>
                             <li>
@@ -136,7 +136,7 @@ const Dashboard = () => {
                             </li>
                         </>
                     }
-                    {/* user */}
+                {/* user */}
                     {
                         userRole === 'user' &&
                         <>
@@ -160,7 +160,7 @@ const Dashboard = () => {
                 </ul>
             </div>
             {/* ////////////////////////////////////////////// */}
-            <div className="flex-1  p-8">
+            <div className="md:flex-1 p-2 md:p-8">
                
 
           

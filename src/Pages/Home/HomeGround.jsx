@@ -3,6 +3,7 @@ import CategoryCard from "./CategoryCard/CategoryCard";
 import { useQuery } from "@tanstack/react-query";
 import Slider from "./Slider/Slider";
 import Discount from "./Discount/Discount";
+import HelthTips from "./ExtraSections/HelthTips";
 
 
 const HomeGround = () => {
@@ -27,7 +28,7 @@ const HomeGround = () => {
     console.log(category)
 
     return (
-        <div className=" my-10    space-y-20 " >
+        <div className=" mb-10    space-y-20 " >
 
             <Slider> </Slider>
 
@@ -42,7 +43,13 @@ const HomeGround = () => {
              
   {/* Discount  */}
              <Discount></Discount>
-  
+  {/* extra 2 section */}
+            <div >
+             
+               <HelthTips></HelthTips>
+
+
+            </div>
  
         </div>
     );

@@ -1,4 +1,4 @@
-import logo from '../../../public/pexels-padrinan-806427.jpg'
+import logo from '../../../public/pexels-cottonbro-5722883.jpg'
 
 
 
@@ -9,10 +9,10 @@ const PharmaBazarFooter = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Branding and Logo */}
           <div className="sm:col-span-2">
-            <div className='flex  gap-4'  >
-              <img className="md:h-14 w-20  md:w-32 rounded-full mb-4" src={logo} alt="ParmaBazar Logo" />
+            <div className='lg:flex  gap-4'  >
+              <img className="h-16 w-24  rounded-full mb-4" src={logo} alt="ParmaBazar Logo" />
               <h1>
-              <a className="md:text-3xl font-extrabold font-cinzel uppercase text-amber-200">farma<span className="text-[#d81b60]">bazar</span></a>
+              <a className=" text-3xl font-extrabold font-cinzel uppercase text-amber-200">farma<span className="text-purple-400">bazar</span></a>
 
 
               </h1>
