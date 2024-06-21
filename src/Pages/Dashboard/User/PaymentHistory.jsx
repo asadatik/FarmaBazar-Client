@@ -20,7 +20,7 @@ const PaymentHistory = () => {
 
         <div className="max-w-4xl mx-auto my-10 p-8 bg-white rounded-lg shadow-lg">
             <Helmet>
-                <title>Payment History</title>
+                <title>Payment History || user </title>
             </Helmet>
 <div className="flex justify-center" >
 

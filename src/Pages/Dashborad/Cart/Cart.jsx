@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import useAxiosSecure from "../../../Hooks/AxioSecure/useAxiosSecure";
 import { useContext } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 
 const Cart = () => {
@@ -112,7 +113,9 @@ const handleDecrement = (item) => {
 
   return (
     <div>
-
+        <Helmet>
+                <title>Your Cart</title>
+            </Helmet> 
       <div className="my-14"   >
         <h1 className="text-4xl font-bold    text-center md:w-1/3  border-y-4  border-cyan-700  p-4 font-cinzel   mx-auto    " > Your Selected Medicine </h1>
 

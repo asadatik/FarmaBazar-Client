@@ -7,6 +7,7 @@ import Swal from 'sweetalert2';
 import { AuthContext } from '../../../Provider/AuthProvider';
 import useAxiosPublic from '../../../Hooks/AxiosPublic/useAxiosPublic';
 import { FcGoogle } from 'react-icons/fc';
+import { Helmet } from 'react-helmet-async';
 
 
 const Login = () => {
@@ -88,7 +89,9 @@ const Login = () => {
 
     return (
         <div className="flex items-center  lg:min-h-screen  rounded-b-3xl  "  > 
-       
+         <Helmet>
+                <title>Login || FarmaBazar</title>
+            </Helmet>
            
             <div className="lg:flex justify-center gap-10   ">
                       <div className='lg:w-2/5'>

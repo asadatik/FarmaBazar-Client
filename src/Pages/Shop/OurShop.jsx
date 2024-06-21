@@ -9,6 +9,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
 import useCart from "../../Hook/useCart/useCart";
+import { Helmet } from "react-helmet-async";
 
 const OurShop = () => {
   const navigate = useNavigate();
@@ -137,6 +138,9 @@ const OurShop = () => {
 
   return (
     <div className="my-14">
+       <Helmet>
+                <title>Shop Page</title>
+            </Helmet>
       <h1 className="text-4xl font-bold text-center md:w-1/4 border-y-4 border-cyan-700 p-4 font-cinzel mx-auto">
         Our Shop
       </h1>

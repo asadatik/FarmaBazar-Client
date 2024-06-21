@@ -1,5 +1,5 @@
 
-import { Link, useLocation, useNavigation, useParams } from "react-router-dom";
+import { Link,  useLocation,  useNavigate,  useParams } from "react-router-dom";
 import useAxiosPublic from "../../../Hooks/AxiosPublic/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
 import { FaEye } from "react-icons/fa";
@@ -13,11 +13,12 @@ import axios from "axios";
 
 const MedicineDtls = () => {
   // const data = useLoaderData()
+
   const axiosPublic = useAxiosPublic();
   const params = useParams()
   const [isOpen, setIsOpen] = useState(false);
   const [id, setId] = useState();
-  const navigate = useNavigation();
+  const navigate = useNavigate();
   const location = useLocation();
   const { user } = useContext(AuthContext);
   const [, refetch] = useCart();
@@ -86,8 +87,7 @@ const MedicineDtls = () => {
         confirmButtonText: "Yes, login!"
       }).then((result) => {
         if (result.isConfirmed) {
-          //   send the user to the login page
-          navigate('/joinUs', { state: { from: location } })
+          navigate("/joinUs", { state: { from: location } });
         }
       });
     }

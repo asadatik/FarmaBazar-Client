@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import Slider from "./Slider/Slider";
 import Discount from "./Discount/Discount";
 import HelthTips from "./ExtraSections/HelthTips";
+import { Helmet } from "react-helmet-async";
 
 
 const HomeGround = () => {
@@ -29,7 +30,9 @@ const HomeGround = () => {
 
     return (
         <div className=" mb-10    space-y-20 " >
-
+             <Helmet>
+                <title>Home || FarmaBazar</title>
+            </Helmet>
             <Slider> </Slider>
 
  {/* Category */}

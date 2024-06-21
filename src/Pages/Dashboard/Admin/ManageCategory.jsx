@@ -7,6 +7,7 @@ import { HiArrowLongLeft } from "react-icons/hi2";
 import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -146,7 +147,9 @@ const ManageCategory = () => {
 
   return (
     <div>
-
+              <Helmet>
+                <title>Manege Category</title>
+            </Helmet>
 
       <h1 className="lg:text-3xl font-bold  uppercase  lg:tracking-[.25em]  text-center md:w-2/4  border-y-4  border-cyan-700  p-2 font-cinzel   mx-auto    " > Manage Category </h1>
 
