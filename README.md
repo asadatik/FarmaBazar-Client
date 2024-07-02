@@ -6,9 +6,6 @@ Welcome to FarmaBazar! This is a full-featured web application for purchasing me
 ## Live Site URL
 Visit our live site: [FarmaBazar](https://medicine-selling.web.app/)
 
-- Admin email: admin1@mail.com
-- Admin password: Asad1221
-
 ## Major and Best Features
 
 1. **Dynamic Home Page**
