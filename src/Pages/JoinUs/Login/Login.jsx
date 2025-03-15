@@ -85,8 +85,6 @@ const Login = () => {
 
         }
           
-
-
     return (
         <div className="flex items-center  lg:min-h-screen  rounded-b-3xl  "  > 
          <Helmet>
