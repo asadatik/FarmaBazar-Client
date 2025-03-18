@@ -10,7 +10,7 @@ const Route = () => {
            <div className="px-1"  >
            <Outlet></Outlet>
            </div>
-               
+                
              <Footer></Footer>
         </div>
     );

@@ -35,7 +35,7 @@ const AdminHome = () => {
                     <p className="text-xl  mb-8">
                         Welcome to your admin dashboard. Here, you can monitor the financial health of your business, track total sales revenue, and manage pending payments. Stay on top of your finances and ensure smooth operations with real-time insights.
                     </p>
-                </header>
+                </header> 
 
 
                 <h2 className='text-center md:text-3xl font-bold my-5 bg-amber-500 text-black md:w-1/4 mx-auto'> Sales Revenue</h2>

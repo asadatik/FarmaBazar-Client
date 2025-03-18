@@ -4,7 +4,7 @@ import logo from '../../../public/pexels-cottonbro-5722883.jpg'
 
 const PharmaBazarFooter = () => {
   return (
-    <footer className="bg-teal-900 text-white py-12 mt-20">
+    <footer className="bg-[#1b85db]  py-12 mt-20">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Branding and Logo */}
@@ -15,13 +15,12 @@ const PharmaBazarFooter = () => {
               <a className=" text-3xl font-extrabold font-cinzel uppercase text-amber-200">farma<span className="text-purple-400">bazar</span></a>
 
 
-              </h1>
+              </h1>   
             </div>
             <p className="text-gray-200">
               Your trusted partner for all your pharmaceutical needs. Quality products, exceptional service.
             </p>
-          </div>
-
+          </div>     
           {/* Navigation Links */}
           <div>
             <h3 className="text-lg font-semibold mb-4 text-gray-100">Quick Links</h3>
