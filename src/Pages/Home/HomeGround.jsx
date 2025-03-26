@@ -37,7 +37,14 @@ const HomeGround = () => {
 
  {/* Category */}
              <div>
-             <h1 className="lg:text-3xl font-bold my-6  uppercase text-center lg:tracking-[.25em]   w-3/5  border-y-4 border-blue-500  md:p-2 font-cinzel   mx-auto   " > Explore Category of Medicines </h1>
+             <h2 className="text-xl  md:text-3xl font-extrabold  uppercase  font-cinzel lg:text-3xl text-center">Explore Category of Medicines</h2>
+                    <div className=" mb-3 text-center">
+                        <span className="inline-block  md:w-40 h-1 bg-blue-500 rounded-full"></span>
+                        <span className="inline-block w-20 h-1 ml-1 bg-blue-500 rounded-full"></span>
+                        <span className="inline-block w-10 h-1 ml-1 bg-blue-500 rounded-full"></span>
+                        <span className="inline-block w-6 h-1 ml-1 bg-blue-500 rounded-full"></span>
+
+                    </div>
             <div className="grid  mx-auto container  gap-x-2 gap-y-10 md:grid-cols-2 lg:grid-cols-3"  >
                 {category.map(i => <CategoryCard key={i._id} item={i}  >     </CategoryCard>)}
             </div>

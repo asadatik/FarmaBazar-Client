@@ -26,11 +26,14 @@ console.log(discountProduct)
     return (
       
         <div>
-        <div>
-            <h3 className='lg:text-3xl font-bold my-6  uppercase text-center lg:tracking-[.25em]   w-3/5  border-y-4 border-blue-500  md:p-2 font-cinzel   mx-auto '>
-               Our  Discounted Products!
-            </h3>
-        </div>
+      <h2 className="text-xl  md:text-3xl font-extrabold  uppercase  font-cinzel lg:text-3xl text-center">🚨 Our Discounted Products! 🎉 </h2>
+                    <div className=" mb-3 text-center">
+                        <span className="inline-block  md:w-44 h-1 bg-blue-500 rounded-full"></span>
+                        <span className="inline-block md:w-32 w-20 h-1 ml-1 bg-blue-500 rounded-full"></span>
+                        <span className="inline-block w-10 h-1 ml-1 bg-blue-500 rounded-full"></span>
+                        <span className="inline-block w-6 h-1 ml-1 bg-blue-500 rounded-full"></span>
+
+                    </div>
         <Swiper
             slidesPerView={3}
             spaceBetween={40}
