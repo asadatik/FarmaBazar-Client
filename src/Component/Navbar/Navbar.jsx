@@ -62,8 +62,10 @@ const Navbar = () => {
           </div>
           <div  className="flex gap-2" >
               <img className="h-10 w-12 rounded-full " src={logo} alt="ParmaBazar Logo" />
-            <a className="  lg:text-3xl font-extrabold font-cinzel uppercase text-amber-200 ">farma<span className="text-pink-400" >bazar</span> </a>
-          </div>
+              <a className=" text-3xl  font-bold text-white"><span className='font-nothing text-amber-100 uppercase'>F</span>arma<span className="font-nothing text-amber-100 uppercase">b</span>azar</a>
+           
+
+              </div>
         </div>
         <div className="navbar-center  hidden lg:flex">
           <ul className="menu menu-horizontal   lg:space-x-12 ">

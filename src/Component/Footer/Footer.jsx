@@ -10,9 +10,9 @@ const PharmaBazarFooter = () => {
           {/* Branding and Logo */}
           <div className="sm:col-span-2">
             <div className='lg:flex  gap-4'  >
-              <img className="h-16 w-24  rounded-full mb-4" src={logo} alt="ParmaBazar Logo" />
+              
               <h1>
-              <a className=" text-3xl font-extrabold font-cinzel uppercase text-amber-200">farma<span className="text-purple-400">bazar</span></a>
+              <a className=" text-3xl  font-bold text-white"><span className='font-nothing text-amber-100 uppercase'>F</span>arma<span className="font-nothing text-amber-100 uppercase">b</span>azar</a>
 
 
               </h1>   
