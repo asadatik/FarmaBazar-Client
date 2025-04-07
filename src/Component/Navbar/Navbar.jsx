@@ -30,7 +30,7 @@ const Navbar = () => {
 
   return (
     <div className=" bg-[#1b85db]   fixed top-0 w-full z-50  text-white "  >
-      <div className="navbar  bg-gradient-to-t  from-neutral-800 ...  ]  ">
+      <div className="navbar  bg-gradient-to-t  from-gray-700 ...  ]  ">
         <div className="navbar-start   ">     
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -87,7 +87,7 @@ const Navbar = () => {
               <button className="btn bg-violet-100 btn-sm ">
                 {/* <TiShoppingCart  className="mr-2 text-black text-xl  "><TiShoppingCart /> */}
                 <TiShoppingCart className=" text-black text-xl  " />
-                <div className="badge  badge-secondary">+{cart.length} </div>
+                <div className="badge text-white bg-gradient-to-r from-sky-400 to-indigo-500">+{cart.length} </div>
               </button>
             </NavLink>
             </a>
@@ -137,7 +137,8 @@ const Navbar = () => {
 
 
                 <li className="">
-                  <Link onClick={LogOut} className="  p-1 bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white  flex justify-center  "  >Log Out</Link>
+                               
+                  <Link onClick={LogOut} className="  p-1 bg-gradient-to-r from-sky-500 to-indigo-500 text-white  flex justify-center  "  >Log Out</Link>
                 </li>
               </ul>
             </div>

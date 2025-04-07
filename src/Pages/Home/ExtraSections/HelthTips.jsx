@@ -90,7 +90,7 @@ const HelthTips = () => {
                                 <img src={tip.image} alt={tip.title} className="w-full h-40 object-cover rounded-lg" />
                                 <h3 className="mt-4 text-xl font-semibold text-gray-800">{tip.title}</h3>
                                 <p className="mt-2 text-gray-600">{tip.content}</p>
-                                <button className="mt-4 p-2 bg-gradient-to-r from-blue-400 to-pink-500 text-white rounded-lg">Read More</button>
+                                <button className="mt-4 px-2 p-1 bg-gradient-to-r from-sky-500 to-indigo-500  text-white rounded-lg">read more</button>
                             </div>
                         ))}
                     </div>
@@ -126,7 +126,7 @@ const HelthTips = () => {
 
                     <div className='flex justify-center'  >
 
-                    <button className="mt-8 btn  text-lg font-nothing bg-gradient-to-r from-blue-700 to-pink-500 text-white rounded-full">See More...</button>
+                    <button className="mt-8 px-2  text-lg   bg-gradient-to-r from-sky-500 to-indigo-500  text-white rounded-full">See More...</button>
 
                     </div>
                 </div>

@@ -51,7 +51,7 @@ console.log(discountProduct)
             <div>
                 {
                     discountProduct.map(product => (
-                        <SwiperSlide className='border-2 border-gray-400 bg-gradient-to-r from-violet-200 to-[#1b85db] rounded-xl shadow-lg md:p-5 transform transition-transform duration-500 hover:scale-105' key={product._id}>
+                        <SwiperSlide className='border-2 border-gray-400 bg-gradient-to-t from-blue-200 to-[#127dd4] rounded-xl shadow-lg md:p-5 transform transition-transform duration-500 hover:scale-105' key={product._id}>
                             <div className='relative'>
                                 <img className='w-full h-64 object-cover rounded-xl' src={product.image} alt={product.name} />
                                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4 rounded-b-xl">
